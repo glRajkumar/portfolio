@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { ThemeProvider } from "@/components/theme/provider";
 
 export const metadata: Metadata = {
   title: "Portfolio - Raj kumar",
@@ -8,9 +9,16 @@ export const metadata: Metadata = {
 
 function RootLayout({ children }: readOnlyChildren) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className="bg-primary text-primary-foreground">
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   )

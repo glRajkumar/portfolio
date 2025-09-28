@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+import ThemeToggler from "../theme/toggler";
+
 const links = [
   {
     name: "Home",
@@ -17,7 +19,7 @@ const links = [
 
 function Nav() {
   return (
-    <nav className="df px-8 py-2 sticky top-0 z-50 bg-primary border-b border-accent/20">
+    <nav className="df nav-anime px-6 py-3 fixed z-50 backdrop-blur-md border border-accent/20">
       <img
         className="size-10 rounded-full object-cover"
         src="/imgs/profile.jpg"
@@ -34,6 +36,8 @@ function Nav() {
           ))
         }
       </ul>
+
+      <ThemeToggler />
     </nav>
   )
 }

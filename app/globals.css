@@ -201,6 +201,12 @@
   }
 }
 
+.nav-anime {
+  animation: nav-ani ease-in both;
+  animation-timeline: scroll();
+  animation-range: entry exit 400px;
+}
+
 .animate-slide-fade {
   animation: slideFade 0.8s ease-out forwards;
 }
@@ -219,6 +225,18 @@
   animation: linear animate-in-and-out;
   animation-timeline: view();
   /* animation-range: entry 100% exit 60%; */
+}
+
+@keyframes nav-ani {
+  from {
+    inset: 0 0 auto;
+    border-radius: 0px;
+  }
+
+  to {
+    inset: 1rem clamp(2%, 5vw, 5rem) auto;
+    border-radius: 1.5rem;
+  }
 }
 
 @keyframes slideFade {
@@ -278,5 +296,30 @@
   exit 100% {
     opacity: 0;
     transform: translateY(-100%);
+  }
+}
+
+::view-transition-group(root) {
+  animation-duration: 0.5s;
+  animation-timing-function: var(--expo-in);
+}
+
+::view-transition-new(root) {
+  animation-name: theme-reveal;
+}
+
+::view-transition-old(root),
+.dark::view-transition-old(root) {
+  animation: none;
+  z-index: -1;
+}
+
+@keyframes theme-reveal {
+  from {
+    clip-path: polygon(0% 50%, 100% 50%, 100% 50%, 0% 50%);
+  }
+
+  to {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
   }
 }
