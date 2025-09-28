@@ -1,9 +1,9 @@
 
 function Footer() {
   return (
-    <div>
+    <footer className="p-8 border-t border-accent/20">
       © 2025 - All Rights Reserved.
-    </div>
+    </footer>
   )
 }
 

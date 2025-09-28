@@ -17,10 +17,15 @@ const links = [
 
 function Nav() {
   return (
-    <nav>
-      <h1>Raj kumar</h1>
+    <nav className="df px-8 py-2 sticky top-0 z-50 bg-primary border-b border-accent/20">
+      <img
+        className="size-10 rounded-full object-cover"
+        src="/imgs/profile.jpg"
+        alt="Profile"
+      />
+      <p>Raj kumar</p>
 
-      <ul>
+      <ul className="df gap-4 ml-auto">
         {
           links.map(link => (
             <Link key={link.to} href={link.to}>

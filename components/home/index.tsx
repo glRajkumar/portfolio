@@ -7,14 +7,14 @@ import Nav from "./nav";
 
 function Home() {
   return (
-    <div className="p-8">
+    <>
       <Nav />
       <Intro />
       <Experiences />
       <Educations />
       <Projects />
       <Footer />
-    </div>
+    </>
   )
 }
 

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 function RootLayout({ children }: readOnlyChildren) {
   return (
     <html lang="en">
-      <body>
+      <body className="bg-primary text-primary-foreground">
         {children}
       </body>
     </html>

@@ -24,6 +24,7 @@ type projT = {
   description: string
   technologies: string[]
   timeline: string
+  features: string[]
   links: {
     description: string
     type: "github" | "live"
@@ -158,11 +159,12 @@ const data: dataT = {
       description: "Trello clone using MERN stack with redux. This project consists main features of Trello like user can create, update and delete the task cards and drag and drop the cards, etc. (not exact ui). Open it in larger screen like laptops for the full feature.",
       technologies: ["MERN Stack"],
       timeline: "Dec 2020 - Feb 2021",
+      features: [],
       links: [
         {
           description: "Source code",
           type: "github",
-          url: "",
+          url: "https://github.com/glRajkumar/trello_clone",
         }
       ],
     },
@@ -171,11 +173,12 @@ const data: dataT = {
       description: "Developed with MERN Stack. This project has the main features of the Instagram like User can create, like, comment on a post, add friends’ zone, protect their account, etc. (not exact ui)",
       technologies: ["MERN Stack"],
       timeline: "Sep 2020 - Dec 2020",
+      features: [],
       links: [
         {
           description: "Source code",
           type: "github",
-          url: "",
+          url: "https://github.com/glRajkumar/instagram-clone-v2",
         }
       ],
     },
@@ -189,11 +192,17 @@ const data: dataT = {
       `,
       technologies: ["Html, Css"],
       timeline: "Aug 2020 - Nov 2020",
+      features: [],
       links: [
         {
           description: "Source code",
           type: "github",
-          url: "",
+          url: "https://github.com/glRajkumar/Landing_page_collections",
+        },
+        {
+          description: "Live",
+          type: "live",
+          url: "https://glrajkumar.github.io/Landing_page_collections"
         }
       ],
     },
@@ -208,11 +217,12 @@ const data: dataT = {
       `,
       technologies: ["MERN"],
       timeline: "",
+      features: [],
       links: [
         {
           description: "Source code",
           type: "github",
-          url: "",
+          url: "https://github.com/glRajkumar/Mini_projects",
         }
       ],
     },
