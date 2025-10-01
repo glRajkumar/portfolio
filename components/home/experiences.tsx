@@ -1,29 +1,48 @@
-import data from "./data";
+import { experiences } from "./data";
 
 function Experiences() {
   return (
-    <section className="p-8 relative">
-      <h2 className="mb-2 text-4xl text-center">Work Experience</h2>
+    <section className="p-8">
+      <h3 className="mb-4 text-4xl text-center">Work Experience</h3>
 
       {
-        data.experiences.map(ex => (
-          <div key={ex.title} className="revealing mb-20 p-8 rounded-2xl border">
-            <div className=" p-2 bg-amber-500 sticky top-12">
-              <p>{ex.title}</p>
-              <p>{ex.company}</p>
+        experiences.map((ex, i) => (
+          <div key={ex.title} className="revealing mb-8 rounded-2xl border relative isolate">
+            <span className={`timeline-line w-px ${i === experiences.length - 1 ? "[--h:90%] md:[--h:80%]" : ""} absolute top-12 -left-px bg-gradient-to-b from-border via-border to-teal-300 rounded-full`}></span>
+
+            <div className="df justify-between gap-4 p-4 pl-7 sticky top-20 rounded-2xl bg-secondary">
+              <span className="size-5 absolute top-1/2 -left-[11px] -translate-y-1/2 bg-border dark:bg-secondary border border-accent-foreground/70 rounded-full z-[1]"></span>
+
+              <div className="flex-1">
+                <p>{ex.title}</p>
+                <p>{ex.company}</p>
+              </div>
+
+              <div>
+                <p>{ex.timeline}</p>
+                <p>{ex.location}</p>
+              </div>
             </div>
-            <p>{ex.timeline}</p>
-            <p>{ex.location}</p>
-            {ex.descriptions.map((d, j) => {
-              if (typeof d === "string") {
+
+            <div className="p-4">
+              {ex.descriptions.map((d, j) => {
+                if (typeof d === "string") {
+                  return (
+                    <p className="mb-1" key={j}>{d}</p>
+                  )
+                }
                 return (
-                  <p key={j}>{d}</p>
+                  <div className="pl-4 mb-4" key={j}>
+                    <h6>{d.title}</h6>
+                    {
+                      d.points.map((p, i) => (
+                        <p className="mb-1 pl-4" key={i}>{p}</p>
+                      ))
+                    }
+                  </div>
                 )
-              }
-              return d.points.map((p, i) => (
-                <p key={i}>{p}</p>
-              ))
-            })}
+              })}
+            </div>
           </div>
         ))
       }

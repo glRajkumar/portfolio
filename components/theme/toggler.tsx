@@ -24,15 +24,14 @@ function ThemeToggler({ className }: ThemeTogglerProps) {
     document.startViewTransition(switchTheme)
   }
 
-
   return (
     <Button
       onClick={toggleTheme}
       variant="ghost"
-      className={cn("size-7 aspect-square p-0", className)}
+      className={cn("size-7 aspect-square p-0 cursor-pointer", className)}
     >
-      <SunIcon className="size-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-      <MoonIcon className="absolute size-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+      <SunIcon className={cn("size-4 hidden dark:block")} />
+      <MoonIcon className={cn("size-4 dark:hidden")} />
       <span className="sr-only">Toggle theme</span>
     </Button>
   )

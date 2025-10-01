@@ -19,7 +19,7 @@ const links = [
 
 function Nav() {
   return (
-    <nav className="df nav-anime px-6 py-3 fixed z-50 backdrop-blur-md border border-accent/20">
+    <nav className="df nav-anime px-6 py-3 fixed z-50 backdrop-blur-md border">
       <img
         className="size-10 rounded-full object-cover"
         src="/imgs/profile.jpg"

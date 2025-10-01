@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 function RootLayout({ children }: readOnlyChildren) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="bg-primary text-primary-foreground">
+      <body className="bg-primary-foreground text-primary">
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

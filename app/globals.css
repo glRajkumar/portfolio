@@ -215,6 +215,12 @@
   animation: imgMove 1s ease-out forwards;
 }
 
+.timeline-line {
+  animation: grow-line linear forwards;
+  animation-timeline: view();
+  animation-range: entry 25% cover 80%;
+}
+
 .revealing {
   animation: auto linear reveal both;
   animation-timeline: view();
@@ -262,6 +268,16 @@
   100% {
     opacity: 1;
     clip-path: inset(0%);
+  }
+}
+
+@keyframes grow-line {
+  from {
+    height: 0%;
+  }
+
+  to {
+    height: var(--h, 100%);
   }
 }
 
