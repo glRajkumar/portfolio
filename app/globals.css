@@ -248,6 +248,11 @@
   /* animation-range: entry 100% exit 60%; */
 }
 
+.bg-pattern {
+  background-image: radial-gradient(var(--color-primary) 0.5px, var(--color-primary-foreground) 0.5px);
+  background-size: 10px 10px;
+}
+
 @keyframes nav-ani {
   from {
     inset: 0 0 auto;
