@@ -201,6 +201,21 @@
   }
 }
 
+::view-transition-group(root) {
+  animation-duration: 0.5s;
+  animation-timing-function: var(--expo-in);
+}
+
+::view-transition-new(root) {
+  animation-name: theme-reveal;
+}
+
+::view-transition-old(root),
+.dark::view-transition-old(root) {
+  animation: none;
+  z-index: -1;
+}
+
 .nav-anime {
   animation: nav-ani ease-in both;
   animation-timeline: scroll();
@@ -283,8 +298,8 @@
 
 @keyframes reveal {
   from {
-    opacity: 0;
-    scale: 0.5;
+    opacity: 0.6;
+    scale: 0.7;
   }
 
   to {
@@ -315,21 +330,6 @@
   }
 }
 
-::view-transition-group(root) {
-  animation-duration: 0.5s;
-  animation-timing-function: var(--expo-in);
-}
-
-::view-transition-new(root) {
-  animation-name: theme-reveal;
-}
-
-::view-transition-old(root),
-.dark::view-transition-old(root) {
-  animation: none;
-  z-index: -1;
-}
-
 @keyframes theme-reveal {
   from {
     clip-path: polygon(0% 50%, 100% 50%, 100% 50%, 0% 50%);
@@ -337,5 +337,19 @@
 
   to {
     clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+}
+
+@media (min-width: 640px) {
+  @keyframes reveal {
+    from {
+      opacity: 0;
+      scale: 0.5;
+    }
+
+    to {
+      opacity: 1;
+      scale: 1;
+    }
   }
 }
