@@ -12,7 +12,7 @@ const icons: any = {
 
 function Intro() {
   return (
-    <section className="grid lg:grid-cols-3 items-center content-center gap-6 min-h-svh p-8 max-lg:pt-24">
+    <section className="grid lg:grid-cols-3 items-center content-center gap-6 max-w-7xl mx-auto min-h-svh p-8 max-lg:pt-24">
       <div className="animate-slide-fade sm:text-lg lg:col-span-2">
         <p className="text-xs">Hey there,</p>
         <h1 className="font-medium">I'm <span className="text-2xl sm:text-3xl font-semibold bg-linear-to-r from-teal-400 to-teal-500 bg-clip-text text-transparent">Raj kumar</span></h1>

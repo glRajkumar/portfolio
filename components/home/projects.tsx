@@ -8,7 +8,7 @@ type props = {
 
 function Card({ title, list }: props) {
   return (
-    <>
+    <div className="max-w-7xl mx-auto">
       <div className="mb-2 text-lg font-medium">{title} Projects</div>
       <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 mb-8">
         {
@@ -65,7 +65,7 @@ function Card({ title, list }: props) {
           ))
         }
       </div>
-    </>
+    </div>
   )
 }
 

@@ -4,11 +4,11 @@ import { experiences } from "./data";
 function Experiences() {
   return (
     <section className="p-8" id="experience">
-      <h3 className="mb-4 text-4xl text-center">Work Experience</h3>
+      <h3 className="mb-4 text-4xl text-center">Experience</h3>
 
       {
         experiences.map((ex, i) => (
-          <div key={ex.title} className="revealing mb-4 sm:mb-8 rounded-2xl border relative isolate">
+          <div key={ex.title} className="revealing mb-4 sm:mb-8 max-w-7xl mx-auto rounded-2xl border relative isolate">
             <span className={`timeline-line w-px ${i === experiences.length - 1 ? "[--h:90%] md:[--h:80%]" : ""} absolute top-12 -left-px bg-gradient-to-b from-border via-border to-teal-600 dark:to-teal-300 rounded-full`}></span>
 
             <div className="df justify-between flex-wrap sm:gap-4 p-4 pl-7 sticky top-20 rounded-2xl bg-secondary border shadow dark:shadow-white/10">
