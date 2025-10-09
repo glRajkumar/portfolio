@@ -258,6 +258,27 @@
   background-size: 10px 10px;
 }
 
+.marked {
+  @apply text-[13px] sm:text-[15px];
+}
+
+.marked h6,
+.marked strong {
+  @apply font-medium;
+}
+
+.marked ul {
+  @apply px-4 pb-4 list-disc marker:text-secondary-foreground/70
+}
+
+.marked ol {
+  @apply px-4 list-decimal list-inside marker:text-secondary-foreground/70
+}
+
+.marked p {
+  @apply mb-2;
+}
+
 @keyframes nav-ani {
   from {
     inset: 0 0 auto;
