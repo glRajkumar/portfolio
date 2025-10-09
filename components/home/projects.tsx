@@ -71,7 +71,7 @@ function Card({ title, list }: props) {
 
 function Projects() {
   return (
-    <section className="p-8">
+    <section className="p-8" id="projects">
       <h3 className="mb-8 text-4xl text-center">Projects</h3>
       <Card
         title="Live"

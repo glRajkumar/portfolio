@@ -3,7 +3,7 @@ import { experiences } from "./data";
 
 function Experiences() {
   return (
-    <section className="p-8">
+    <section className="p-8" id="experience">
       <h3 className="mb-4 text-4xl text-center">Work Experience</h3>
 
       {
