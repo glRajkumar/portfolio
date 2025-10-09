@@ -34,6 +34,29 @@ export type projT = {
   }[]
 }
 
+export const skills = [
+  {
+    title: "Frontend",
+    list: [
+      "React", "Next.js", "Zustand", "Tanstak Query", "React-router-dom",
+      "TailwindCSS", "Shadcn UI", "SCSS", "React Hook Form", "Zod",
+      "Typescript", "Vite", "Bootstrap", "React Three Fiber",
+    ]
+  },
+  {
+    title: "Backend",
+    list: ["Hono.js", "Express.js", "Fastify", "Jsonwebtoken", "Bcrypt", "Cloudinary", "REST API"]
+  },
+  {
+    title: "Database / ORM",
+    list: ["MongoDb", "PostgreSQL", "Redis", "Mongoose", "Prisma", "Sequelize", "TypeORM", "Supabase"]
+  },
+  {
+    title: "Mobile / Desktop",
+    list: ["React Native", "Expo", "Electron.js", "RN Reanimated", "Nativewind"]
+  },
+]
+
 export const educations: eduT[] = [
   {
     course: "MBA (General)",
