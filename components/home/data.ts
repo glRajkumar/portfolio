@@ -22,11 +22,10 @@ type expT = {
   compDescription?: string
 }
 
-type projT = {
+export type projT = {
   title: string
   description: string
   technologies: string[]
-  timeline: string
   features: string[]
   links: {
     description: string
@@ -158,13 +157,83 @@ export const experiences: expT[] = [
   }
 ]
 
-export const projects: projT[] = [
+export const liveProjects: projT[] = [
+  {
+    title: "SD Matrimony",
+    description: "SD Matrimony is a live, real-world project developed to help my uncle take his matrimony business online.",
+    technologies: ["Next.js", "Hono.js", "MongoDB (Mongoose)", "Redis", "Tailwindcss", "Typescript", "React-queyry", "Zustand", "Shadcn UI"],
+    features: [
+      "Role-based authentication (Super-Admin, Admin and User)",
+      "Advanced user filtering by various criteria",
+      "Paid users can unlock other user's personal details",
+      "PhonePe integration for secure payments",
+    ],
+    links: [
+      {
+        description: "Frontend",
+        type: "github",
+        url: "https://github.com/glRajkumar/sdm-matrimony-frontend",
+      },
+      {
+        description: "Backend",
+        type: "github",
+        url: "https://github.com/glRajkumar/sdm-matrimony-backend",
+      },
+      {
+        description: "Website",
+        type: "live",
+        url: "https://sdmatrimony.com",
+      },
+    ]
+  },
+  {
+    title: "R3F Practice",
+    description: "Website to know about R3F(three.js). (under development)",
+    technologies: ["Next.js", "Three.js", "React-three-fiber", "Tailwindcss", "Typescript", "Mdx", "Lil-GUI", "Shiki", "Shadcn UI"],
+    features: [
+      "Documentation for R3F(three.js) components",
+      "Live example for each components with code samples",
+      "Examples for seperate individual projects"
+    ],
+    links: [
+      {
+        description: "Source code",
+        type: "github",
+        url: "https://github.com/glRajkumar/threejs-r3f",
+      }
+    ]
+  },
+]
+
+export const archievedProjects: projT[] = [
+  {
+    title: "Post-It",
+    description: "Post-It is a simple social media website with Next.js (v13) app router.",
+    technologies: ["Next.js", "PostgreDql (Prisma)", "Next-Auth", "React-query", "Tailwindcss", "Typescript"],
+    features: [
+      "User can create, edit, and delete posts",
+      "Comment functionality on posts",
+      "User authendication with google, github or credencials",
+      "Infinite scroll - get more posts on scroll"
+    ],
+    links: [
+      {
+        description: "Source code",
+        type: "github",
+        url: "https://github.com/glRajkumar/fullstack-nextjs",
+      }
+    ]
+  },
   {
     title: "Trello clone",
-    description: "Trello clone using MERN stack with redux. This project consists main features of Trello like user can create, update and delete the task cards and drag and drop the cards, etc. (not exact ui). Open it in larger screen like laptops for the full feature.",
-    technologies: ["MERN Stack"],
-    timeline: "Dec 2020 - Feb 2021",
-    features: [],
+    description: "Trello clone project consists main features of Trello with minimal ui (not exact ui).",
+    technologies: ["React", "Socket.io", "React-router-dom", "Redux", "Express", "MongoDB (Mongoose)"],
+    features: [
+      "User can create, update and delete Boards, Lists, and Cards",
+      "Private, public and shared boards. Real time updates on shared board",
+      "Activity logs - shows all changes and updates done by whom and when",
+      "Drag and drop the cards from one list to other",
+    ],
     links: [
       {
         description: "Source code",
@@ -175,10 +244,14 @@ export const projects: projT[] = [
   },
   {
     title: "Instagram clone",
-    description: "Developed with MERN Stack. This project has the main features of the Instagram like User can create, like, comment on a post, add friends’ zone, protect their account, etc. (not exact ui)",
-    technologies: ["MERN Stack"],
-    timeline: "Sep 2020 - Dec 2020",
-    features: [],
+    description: "Instagram clone project has the main features of the Instagram with minimal ui (not exact ui).",
+    technologies: ["React", "React-router-dom", "Redux", "Express", "MongoDB (Mongoose)"],
+    features: [
+      "User can create, edit, and delete posts",
+      "Like and comment functionality on posts",
+      "Request to follow private accounts and directly follow public accounts",
+      "View followed user's friends and thier posts",
+    ],
     links: [
       {
         description: "Source code",
@@ -188,16 +261,32 @@ export const projects: projT[] = [
     ],
   },
   {
-    title: "Landing page collections",
-    description: `
-      This project consists of my several landing pages I build at different time, and then combined to come under one domain(project).Currently It consists of three landing pages.They are,
-        1) Netflix Landing Page
-        2) Marquis Hotel Landing Page 
-        3) Coinskite School Landing Page
-      `,
-    technologies: ["Html, Css"],
-    timeline: "Aug 2020 - Nov 2020",
-    features: [],
+    title: "Mini projects",
+    description: "This project consists of small (MERN or Plain React) projects I build at different time, and then combined.",
+    technologies: ["React", "React-router-dom", "Express", "MongoDB (Mongoose)"],
+    features: [
+      "Netflix Landing Page Clone",
+      "Weather Comparison Website",
+      "Simple Room Based Chat Website",
+      "Expense Tracker Website"
+    ],
+    links: [
+      {
+        description: "Source code",
+        type: "github",
+        url: "https://github.com/glRajkumar/Mini_projects",
+      }
+    ],
+  },
+  {
+    title: "Landing pages",
+    description: "This project consists of my several landing pages I build at different time, and then combined.",
+    technologies: ["Html", "Css"],
+    features: [
+      "Netflix Landing Page",
+      "Marquis Hotel Landing Page",
+      "Coinskite School Landing Page",
+    ],
     links: [
       {
         description: "Source code",
@@ -208,26 +297,6 @@ export const projects: projT[] = [
         description: "Live",
         type: "live",
         url: "https://glrajkumar.github.io/Landing_page_collections"
-      }
-    ],
-  },
-  {
-    title: "MERN and React (mini projects)",
-    description: `
-      This project consists of small (MERN) projects I build at different time, and then combined to come under one domain(project). They are,
-        1) Netflix Landing Page Clone
-        2) Weather Comparison Website 
-        3) Simple Room Based Chat Website 
-        4) Expense Tracker Website 
-      `,
-    technologies: ["MERN"],
-    timeline: "",
-    features: [],
-    links: [
-      {
-        description: "Source code",
-        type: "github",
-        url: "https://github.com/glRajkumar/Mini_projects",
       }
     ],
   },

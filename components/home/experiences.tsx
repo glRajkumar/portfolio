@@ -29,7 +29,7 @@ function Experiences() {
               {ex.compDescription}
             </div>
 
-            <ul className={cn("px-2 sm:px-4 pb-4 text-[13px] sm:text-[15px] list-disc list-inside marker:text-secondary-foreground/70", ex.listCls)}>
+            <ul className={cn("px-4 pb-4 text-[13px] sm:text-[15px] list-disc list-inside marker:text-secondary-foreground/70", ex.listCls)}>
               {ex.descriptions.map((d, j) => {
                 if (typeof d === "string") {
                   return (

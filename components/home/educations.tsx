@@ -20,7 +20,7 @@ function Educations() {
               </p>
               <p className="text-primary/90">{edu.institution}</p>
             </div>
-            {i < educations.length - 1 && <div className="-mx-8 py-5 bg-pattern border-y"></div>}
+            {i < educations.length - 1 && <div className="-mx-8 py-2.5 bg-pattern border-y"></div>}
           </Fragment>
         ))
       }
