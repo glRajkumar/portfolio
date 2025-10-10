@@ -1,39 +1,4 @@
 
-type eduT = {
-  course: string
-  institution: string
-  timeline: string
-}
-
-type descT = string | {
-  title: string
-  listCls?: string
-  description?: string
-  points: string[]
-}
-
-type expT = {
-  title: string
-  company: string
-  timeline: string
-  location: string
-  listCls?: string
-  descriptions: descT[]
-  compDescription?: string
-}
-
-export type projT = {
-  title: string
-  description: string
-  technologies: string[]
-  features: string[]
-  links: {
-    description: string
-    type: "github" | "live"
-    url: string
-  }[]
-}
-
 export const skills = [
   {
     title: "Frontend",
@@ -57,7 +22,7 @@ export const skills = [
   },
 ]
 
-export const educations: eduT[] = [
+export const educations = [
   {
     course: "MBA (General)",
     institution: "Pondicherry University - Loyola College",
@@ -81,10 +46,10 @@ export const experiences = [
     company: "HaiVE",
     timeline: "Feb 2024 - Jun 2025",
     location: "Hybrid - Chennai",
-    compDescription: "HaiVE is an AI-first SaaS company focused on research and developing innovative AI-driven products. I was **responsible for end-to-end UI development** across web, mobile, and desktop platforms using React as the core technology. **Contributed to 15+ projects from scratch**, out of which two evolved into major products: Speakup and Nidum.AI.",
-    descriptions: [
-      `
-###### 1. Speakup (Agent Studio)
+    descriptions: `
+HaiVE is an AI-first SaaS company focused on research and developing innovative AI-driven products. I was **responsible for end-to-end UI development** across web, mobile, and desktop platforms using React as the core technology. **Contributed to 15+ projects from scratch**, out of which two evolved into major products: Speakup and Nidum.AI.
+
+###### Speakup (Agent Studio)
 
 Speakup is an AI Agent Studio platform that automates B2B customer interactions using AI-driven voice and chat assistants - positioned as a direct competitor to vapi.ai and bland.ai. It offers customizable AI workflows, multi-channel communication (voice and chat), and seamless third-party integrations.
 
@@ -92,11 +57,10 @@ Speakup is an AI Agent Studio platform that automates B2B customer interactions 
 - Integrated third-party platforms like **Zendesk and Zoho Cliq via webhooks** to enable seamless communication between AI agents and external systems.
 - **Led** the development and maintenance of the **frontend, backend** services (auth and user data), and chatbot functionality, ensuring a scalable and reliable experience across use cases.
 - **Implemented a user-friendly interface** for creating and managing AI agents, linking them to mobile numbers, deploying them for various interaction scenarios and customizing their behavior and chatbot interfaces.
-- Technologies used: Next.js, Hono.js, Tailwind CSS, Zustand, React Query.
-`,
 
-      `
-###### 2. Nidum.AI (Vibe Studio)
+<Tech list={["Next.js", "Hono.js", "Tailwind CSS", "Zustand", "React Query", "MongoDb - Mongoose", "Shadcn UI", "Arctic"]} />
+
+###### Nidum.AI (Vibe Studio)
 
 Nidum.AI is transforming the AI landscape by building a decentralized ecosystem that allows anyone to contribute computing power and earn rewards. Currently being acquired by BitsCrunch, a leading AI + Blockchain company in the crypto space.
 
@@ -106,35 +70,36 @@ Nidum.AI is transforming the AI landscape by building a decentralized ecosystem 
 - Website features: Chat with AI models, image uploads, and voice activity detection (VAD) support.
 - Mobile app features: Chat with AI models, use local AI models, and upload images.
 - Desktop app features: All web features, plus local model loading, document-based chat, and the ability for users to share their computation power by exposing models for use by others.
-- Technologies used: React, React Native + Expo, Electron, Tailwind CSS, Zustand, React Query.
+
+<Tech list={["React", "React-router-dom", "React Native + Expo", "Electron.js", "Tailwind CSS", "Zustand", "React Query", "Markdown parsers", "Express.js"]} />
 `,
-    ],
   },
   {
     title: "Full Stack Developer",
     company: "Datalligence AI",
     timeline: "Jul 2023 - Feb 2024",
     location: "In-Office - Chennai",
-    compDescription: "Datalligence is an OKR and performance management platform built to drive team alignment, boost productivity, and accelerate execution within organizations.",
-    descriptions: [
-      `
+    descriptions: `
+Datalligence is an OKR and performance management platform built to drive team alignment, boost productivity, and accelerate execution within organizations.
+
 - **Revamped OKR module UI** with a sleek design, enhancing both user and developer experience.
 - Overhauled UI logics for a more intuitive and seamless interface using **Ant Design systems** with Tailwind CSS.
 - **Accelerated development speed** by incorporating Tailwind CSS, React Query, and Zustand.
 - Successfully addressed and **resolved** major frontend and backend **issues**.
 - **Upgraded deprecated libraries**, ensuring code integrity and future proofing.
 - Worked on TypeORM with PostgreSQL on the backend.
-- Technologies used: React, Tailwind CSS, React Query, Zustand, TypeORM, PostgreSQL.`
-    ]
+
+<Tech list={["React", "React-router-dom", "Tailwind CSS", "React Query", "Zustand", "TypeORM", "PostgreSQL", "Ant Design"]} />
+`
   },
   {
     title: "Software Developer",
     company: "Redink.app",
     timeline: "Feb 2022 - Jun 2023",
     location: "Remote",
-    compDescription: "Redink is a leading LMS platform for K-12 schools.",
-    descriptions: [
-      `
+    descriptions: `
+Redink is a leading LMS platform for K-12 schools.
+
 - Successfully developed **Redink Classroom v2** (Teacher and Admin roles), showcasing my ability to create effective and user-friendly modern web applications using React and Tailwind CSS.
 - Proactively **addressed critical bugs** and introduced new features, resulting in **78 pull requests**, demonstrating my commitment to continuous improvement.
 - Implemented **optimization strategies** by reducing library dependencies, achieving a **30% reduction** in overall site load time.
@@ -146,17 +111,18 @@ Nidum.AI is transforming the AI landscape by building a decentralized ecosystem 
   2. **Upfunda** website (previously YouthInYou) - built in Next.js. [Website](https://upfunda.academy)
   3. **Truseve** website (home, /microsoft, /hardware pages) - built in Next.js. [Website](https://www.truseve.com)
   4. **Skillaura** platform (Admin and Student roles) - built in React.js with Firebase authentication. [Website](https://skillaura.com)
-- Technologies used: React, Next.js, Tailwind CSS.`
-    ]
+
+<Tech list={["React", "Next.js", "Tailwind CSS", "Headless UI", "Floating UI"]} />
+`
   },
   {
     title: "MERN Stack Developer",
     company: "Teknuance Info Solutions",
     timeline: "Nov 2020 - Feb 2022",
     location: "Remote",
-    compDescription: "Teknuance Info Solutions is a product and research-driven organization delivering innovative solutions to complex challenges across industries. Worked on Sabhae products which is an all-in-one collaboration tool for online meetings and team communication and collabration - positioned as a direct competitor to Microsoft's Teams products.",
-    descriptions: [
-      `
+    descriptions: `
+Teknuance Info Solutions is a product and research-driven organization delivering innovative solutions to complex challenges across industries. Worked on Sabhae products which is an all-in-one collaboration tool for online meetings and team communication and collabration - positioned as a direct competitor to Microsoft's Teams products.
+
 ###### Full Time
 
 - Designed and developed Sabhae Bot, which processed, analyzed and **rendered complex data dynamically into simple UI components**.
@@ -165,14 +131,29 @@ Nidum.AI is transforming the AI landscape by building a decentralized ecosystem 
 - **Created a custom CSS library in Sass** for the UI team, improving **workflow efficiency by 50-60%**.
 - Contributed to Sabhae products such as Meeting, Calendar, and Chat apps.
 
+<Tech list={["React", "Sass", "Redux", "MERN Stack", "Socket.io"]} />
+
 ###### Internship
 
 - Worked on basic tasks such as creating simple webpages using React and Redux.
-- Built a simple chat application using the MERN stack with Socket.io for **real-time messaging**.`
-    ]
-  }
-];
+- Built a simple chat application using the MERN stack with Socket.io for **real-time messaging**.
 
+<Tech list={["React", "Bootstrap", "Redux", "MERN Stack", "Socket.io"]} />
+`
+  }
+]
+
+export type projT = {
+  title: string
+  description: string
+  technologies: string[]
+  features: string[]
+  links: {
+    description: string
+    type: "github" | "live"
+    url: string
+  }[]
+}
 
 export const liveProjects: projT[] = [
   {

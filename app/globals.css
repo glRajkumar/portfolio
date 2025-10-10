@@ -259,7 +259,7 @@
 }
 
 .marked {
-  @apply text-[13px] sm:text-[15px];
+  @apply text-[13px] sm:text-sm md:text-[15px];
 }
 
 .marked h6,
@@ -268,15 +268,19 @@
 }
 
 .marked ul {
-  @apply px-4 pb-4 list-disc marker:text-secondary-foreground/70
+  @apply pl-4 sm:pl-6 pb-2 list-disc marker:text-secondary-foreground/70;
 }
 
 .marked ol {
-  @apply px-4 list-decimal list-inside marker:text-secondary-foreground/70
+  @apply pl-2 list-decimal list-inside marker:text-secondary-foreground/70;
 }
 
 .marked p {
   @apply mb-2;
+}
+
+.marked a {
+  @apply underline hover:text-teal-500;
 }
 
 @keyframes nav-ani {
