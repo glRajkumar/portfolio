@@ -372,15 +372,10 @@ export const jsonLd = {
     },
   ],
 
-  "hasOccupation": experiences.map(ex => {
-    const [start, end] = ex.isoTimeline.split("/")
-    return {
-      "@type": "Occupation",
-      "name": ex.title,
-      "startDate": start,
-      "endDate": end,
-    }
-  }),
+  "hasOccupation": experiences.map(ex => ({
+    "@type": "Occupation",
+    "name": ex.title,
+  })),
 
   "alumniOf": educations.map(ed => ({
     "@type": "EducationalOrganization",
