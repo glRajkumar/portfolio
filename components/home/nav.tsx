@@ -19,7 +19,7 @@ function Nav() {
       <Link href="/" className="df">
         <img
           className="size-10 rounded-full object-cover border"
-          src="/imgs/profile.png"
+          src="/imgs/profile.webp"
           alt="Profile"
         />
         <span className="hidden sm:block">Raj kumar</span>
@@ -28,13 +28,14 @@ function Nav() {
       <ul className="df gap-4 ml-auto">
         {
           links.map(link => (
-            <Link
-              key={link.to}
-              href={link.to}
-              className="hover:text-teal-500"
-            >
-              {link.name}
-            </Link>
+            <li key={link.to}>
+              <Link
+                href={link.to}
+                className="hover:text-teal-500"
+              >
+                {link.name}
+              </Link>
+            </li>
           ))
         }
       </ul>

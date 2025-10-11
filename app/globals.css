@@ -262,7 +262,6 @@
   @apply text-[13px] sm:text-sm md:text-[15px];
 }
 
-.marked h6,
 .marked strong {
   @apply font-medium;
 }

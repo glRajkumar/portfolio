@@ -49,7 +49,7 @@ export const experiences = [
     descriptions: `
 HaiVE is an AI-first SaaS company focused on research and developing innovative AI-driven products. I was **responsible for end-to-end UI development** across web, mobile, and desktop platforms using React as the core technology. **Contributed to 15+ projects from scratch**, out of which two evolved into major products: Speakup and Nidum.AI.
 
-###### Speakup (Agent Studio)
+<strong className="-mb-1">Speakup (Agent Studio)</strong>
 
 Speakup is an AI Agent Studio platform that automates B2B customer interactions using AI-driven voice and chat assistants - positioned as a direct competitor to vapi.ai and bland.ai. It offers customizable AI workflows, multi-channel communication (voice and chat), and seamless third-party integrations.
 
@@ -60,7 +60,7 @@ Speakup is an AI Agent Studio platform that automates B2B customer interactions 
 
 <Tech list={["Next.js", "Hono.js", "Tailwind CSS", "Zustand", "React Query", "MongoDb - Mongoose", "Shadcn UI", "Arctic"]} />
 
-###### Nidum.AI (Vibe Studio)
+<strong className="-mb-1">Nidum.AI (Vibe Studio)</strong>
 
 Nidum.AI is transforming the AI landscape by building a decentralized ecosystem that allows anyone to contribute computing power and earn rewards. Currently being acquired by BitsCrunch, a leading AI + Blockchain company in the crypto space.
 
@@ -123,7 +123,7 @@ Redink is a leading LMS platform for K-12 schools.
     descriptions: `
 Teknuance Info Solutions is a product and research-driven organization delivering innovative solutions to complex challenges across industries. Worked on Sabhae products which is an all-in-one collaboration tool for online meetings and team communication and collabration - positioned as a direct competitor to Microsoft's Teams products.
 
-###### Full Time
+<strong className="-mb-1">Full Time</strong>
 
 - Designed and developed Sabhae Bot, which processed, analyzed and **rendered complex data dynamically into simple UI components**.
 - **Collaborated with NLP and Machine Learning teams** to plan and design the bot workflow.
@@ -133,7 +133,7 @@ Teknuance Info Solutions is a product and research-driven organization deliverin
 
 <Tech list={["React", "Sass", "Redux", "MERN Stack", "Socket.io"]} />
 
-###### Internship
+<strong className="-mb-1">Internship</strong>
 
 - Worked on basic tasks such as creating simple webpages using React and Redux.
 - Built a simple chat application using the MERN stack with Socket.io for **real-time messaging**.
