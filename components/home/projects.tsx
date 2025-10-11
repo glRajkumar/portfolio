@@ -28,7 +28,7 @@ function Card({ title, list }: props) {
                   {pro.title}
                 </h4>
 
-                <div className="df flex-wrap gap-2" role="list" aria-label="Project links">
+                <div className="df flex-wrap gap-2" aria-label="Project links">
                   {pro.links.map(l => (
                     <a
                       key={l.url}
@@ -38,7 +38,6 @@ function Card({ title, list }: props) {
                       className="df gap-1.5 px-2.5 py-1.5 text-xs border rounded-md hover:bg-primary hover:text-primary-foreground transition-colors cursor-pointer shadow dark:shadow-white/20"
                       aria-label={`${l.description} for ${pro.title}`}
                       itemProp={l.type === "github" ? "codeRepository" : "url"}
-                      role="listitem"
                     >
                       {l.type === "github" ?
                         <svg role="img" viewBox="0 0 24 24" className="size-4" fill="currentColor" aria-hidden="true">
@@ -72,14 +71,13 @@ function Card({ title, list }: props) {
                 </ul>
               </div>
 
-              <footer className="df flex-wrap" role="list" aria-label="Technologies used">
+              <footer className="df flex-wrap" aria-label="Technologies used">
                 <span className="sr-only">Technologies used:</span>
                 {pro.technologies.map(t => (
                   <span
                     key={t}
                     className="px-2.5 py-1 text-xs text-primary/80 border rounded-lg bg-primary/5"
                     itemProp="keywords"
-                    role="listitem"
                   >
                     {t}
                   </span>

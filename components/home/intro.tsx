@@ -54,7 +54,6 @@ function Intro() {
 
         <p
           className="flex flex-wrap gap-2.5"
-          role="list"
           aria-label="Social media profiles"
         >
           {socials.map(so => (
@@ -67,7 +66,6 @@ function Intro() {
               rel="noopener noreferrer"
               aria-label={`${so.product} profile`}
               itemProp="sameAs"
-              role="listitem"
             >
               {icons?.[so.product]}
               <span className="sr-only">{so.product}</span>

@@ -8,7 +8,7 @@ import { ThemeProvider } from "@/components/theme/provider";
 const config = {
   url: "https://glrk.dev",
   name: "Raj kumar",
-  title: "Raj kumar | Full Stack Web Developer",
+  title: "Raj kumar | Full Stack Web Developer (React & Node.js)",
   description: "Raj Kumar is a Full Stack Web Developer specializing in React and Node.js ecosystem.",
   appName: "glrk",
 }

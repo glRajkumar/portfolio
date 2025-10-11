@@ -12,7 +12,7 @@ function Educations() {
         Education
       </h2>
 
-      <div role="list" aria-label="Educational qualifications">
+      <div aria-label="Educational qualifications">
         {educations.map((edu, i) => (
           <Fragment key={edu.course}>
             <article
@@ -20,7 +20,6 @@ function Educations() {
                 "rounded-t-2xl": i === 0,
                 "rounded-b-2xl": i === educations.length - 1,
               })}
-              role="listitem"
               itemScope
               itemType="https://schema.org/EducationalOccupationalCredential"
             >

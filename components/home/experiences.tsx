@@ -26,14 +26,13 @@ function Experiences() {
         Experience
       </h2>
 
-      <div role="list" aria-label="Work experience timeline">
+      <div aria-label="Work experience timeline" itemProp="hasOccupation" itemScope itemType="https://schema.org/OrganizationRole">
         {experiences.map((ex, i) => (
           <article
             key={ex.title}
             className="revealing mb-4 sm:mb-8 max-w-7xl mx-auto rounded-2xl border relative isolate"
-            role="listitem"
             itemScope
-            itemType="https://schema.org/WorkExperience"
+            itemType="https://schema.org/OrganizationRole"
           >
             <span
               className={`timeline-line w-px ${i === experiences.length - 1 ? "[--h:90%] md:[--h:80%]" : ""} absolute top-12 -left-px bg-gradient-to-b from-border via-border to-teal-600 dark:to-teal-300 rounded-full`}
@@ -47,20 +46,20 @@ function Experiences() {
               ></span>
 
               <div className="sm:flex-1 text-sm sm:text-base font-medium">
-                <h3 className="text-base sm:text-lg" itemProp="jobTitle">
+                <h3 className="text-base sm:text-lg" itemProp="roleName">
                   {ex.title}
                 </h3>
-                <p itemProp="employer" itemScope itemType="https://schema.org/Organization">
+                <p itemScope itemType="https://schema.org/Organization">
                   <span itemProp="name">{ex.company}</span>
                 </p>
               </div>
 
               <div className="text-xs sm:text-sm">
-                <time itemProp="duration" dateTime={ex.isoTimeline}>
+                <time dateTime={ex.isoTimeline}>
                   {ex.timeline}
                 </time>
-                <p itemProp="jobLocation" itemScope itemType="https://schema.org/Place">
-                  <span itemProp="address">{ex.location}</span>
+                <p itemScope itemType="https://schema.org/Place">
+                  <span itemProp="name">{ex.location}</span>
                 </p>
               </div>
             </header>
