@@ -95,15 +95,8 @@ function Card({ title, list }: props) {
 
 function Projects() {
   return (
-    <section
-      className="p-8"
-      id="projects"
-      aria-labelledby="projects-heading"
-    >
-      <h2
-        id="projects-heading"
-        className="mb-8 text-4xl text-center"
-      >
+    <section className="p-8" id="projects">
+      <h2 className="mb-8 text-4xl text-center">
         Projects
       </h2>
 

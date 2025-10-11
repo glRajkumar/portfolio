@@ -13,7 +13,6 @@ function Intro() {
   return (
     <section
       className="grid lg:grid-cols-3 items-center content-center gap-6 max-w-7xl mx-auto min-h-svh p-8 max-lg:pt-24"
-      aria-labelledby="intro-heading"
       itemScope
       itemType="https://schema.org/Person"
     >
@@ -28,7 +27,6 @@ function Intro() {
           </span>
         </h1>
         <p
-          id="intro-heading"
           className="mb-2 text-3xl sm:text-4xl font-semibold"
           itemProp="jobTitle"
         >

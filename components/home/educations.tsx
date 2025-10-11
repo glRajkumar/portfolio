@@ -7,12 +7,8 @@ function Educations() {
     <section
       id="education"
       className="p-8 pb-16 relative border-y"
-      aria-labelledby="education-heading"
     >
-      <h2
-        id="education-heading"
-        className="mb-8 text-4xl text-center"
-      >
+      <h2 className="mb-8 text-4xl text-center">
         Education
       </h2>
 
@@ -43,15 +39,17 @@ function Educations() {
                   {edu.timeline}
                 </time>
               </div>
-              <p
+
+              <div
                 className="text-primary/90"
                 itemProp="recognizedBy"
                 itemScope
                 itemType="https://schema.org/EducationalOrganization"
               >
                 <span itemProp="name">{edu.institution}</span>
-              </p>
+              </div>
             </article>
+
             {i < educations.length - 1 && (
               <div
                 className="-mx-8 py-2.5 bg-pattern border-y"

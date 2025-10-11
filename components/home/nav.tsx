@@ -15,10 +15,7 @@ const links = [
 
 function Nav() {
   return (
-    <nav
-      className="df nav-anime px-6 py-3 fixed z-50 backdrop-blur-md border shadow dark:shadow-white/20"
-      aria-label="Main navigation"
-    >
+    <nav className="df nav-anime px-6 py-3 fixed z-50 backdrop-blur-md border shadow dark:shadow-white/20">
       <Link href="/" className="df">
         <img
           className="size-10 rounded-full object-cover border"

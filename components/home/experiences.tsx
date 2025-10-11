@@ -4,7 +4,7 @@ import { experiences } from "./data";
 
 function Tech({ list }: { list: string[] }) {
   return (
-    <div className="df flex-wrap pb-2" role="list" aria-label="Technologies used">
+    <p className="df flex-wrap pb-2" role="list" aria-label="Technologies used">
       <span className="sr-only">Technologies used:</span>
       {list.map((l, i) => (
         <span
@@ -15,18 +15,15 @@ function Tech({ list }: { list: string[] }) {
           {l}
         </span>
       ))}
-    </div>
+    </p>
   )
 }
 
 function Experiences() {
   return (
-    <section className="p-8" id="experience" aria-labelledby="experience-heading">
-      <h2
-        id="experience-heading"
-        className="mb-4 text-4xl text-center"
-      >
-        Professional Experience
+    <section className="p-8" id="experience">
+      <h2 className="mb-4 text-4xl text-center">
+        Experience
       </h2>
 
       <div role="list" aria-label="Work experience timeline">
