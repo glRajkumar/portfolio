@@ -41,8 +41,8 @@ function Intro() {
       </div>
 
       <img
-        className="size-60 sm:size-80 mx-auto rounded-full object-cover animate-img-move"
-        src="/imgs/profile.jpg"
+        className="size-60 sm:size-80 mx-auto rounded-full object-cover animate-img-move border"
+        src="/imgs/profile.png"
         alt="Profile"
       />
     </section>
