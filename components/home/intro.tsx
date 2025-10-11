@@ -9,41 +9,82 @@ const icons: any = {
   email: <Mail className="size-4"><title>Mail</title></Mail>,
 }
 
-
 function Intro() {
   return (
-    <section className="grid lg:grid-cols-3 items-center content-center gap-6 max-w-7xl mx-auto min-h-svh p-8 max-lg:pt-24">
+    <section
+      className="grid lg:grid-cols-3 items-center content-center gap-6 max-w-7xl mx-auto min-h-svh p-8 max-lg:pt-24"
+      aria-labelledby="intro-heading"
+      itemScope
+      itemType="https://schema.org/Person"
+    >
       <div className="animate-slide-fade sm:text-lg lg:col-span-2">
         <p className="text-xs">Hey there,</p>
-        <h1 className="font-medium">I'm <span className="text-2xl sm:text-3xl font-semibold bg-linear-to-r from-teal-400 to-teal-500 bg-clip-text text-transparent">Raj kumar</span></h1>
-        <h2 className="mb-2 text-3xl sm:text-4xl font-semibold">Full Stack Web Dev</h2>
-        <p className="mb-4 text-sm text-justify">I'm a Full Stack Web Developer focused on building scalable, user-friendly web applications using the React ecosystem and Node.js. Having worked closely with startup founders, I deliver solutions that balance business goals with design excellence. With an intrapreneurial mindset, I constantly innovate, optimize workflows, and ensure seamless product experiences.</p>
-
-        {skills.map((sk, i) => (
-          <p key={sk.title} className={`${i + 1 === skills.length ? "mb-4" : "mb-1.5"} text-sm text-justify`}>
-            <span className="font-medium">{sk.title} : </span>
-            {sk.list.join(", ")}
-          </p>
-        ))}
-
-        {socials.map(so => (
-          <a
-            key={so.product}
-            href={so.link}
-            title={so.product}
-            className="inline-block mr-2.5 p-2 border rounded hover:bg-primary hover:text-primary-foreground transition-colors"
-            target="_blank"
+        <h1 className="font-medium">
+          I'm <span
+            className="text-2xl sm:text-3xl font-semibold bg-linear-to-r from-teal-400 to-teal-500 bg-clip-text text-transparent"
+            itemProp="name"
           >
-            {icons?.[so.product]}
-            <span className="sr-only">{`${so.product} - ${so.link}`}</span>
-          </a>
-        ))}
+            Raj kumar
+          </span>
+        </h1>
+        <p
+          id="intro-heading"
+          className="mb-2 text-3xl sm:text-4xl font-semibold"
+          itemProp="jobTitle"
+        >
+          Full Stack Web Developer
+        </p>
+        <p
+          className="mb-4 text-sm text-justify"
+          itemProp="description"
+        >
+          I'm a Full Stack Web Developer focused on building scalable, user-friendly web applications using the React ecosystem and Node.js. Having worked closely with startup founders, I deliver solutions that balance business goals with design excellence. With an intrapreneurial mindset, I constantly innovate, optimize workflows, and ensure seamless product experiences.
+        </p>
+
+        <dl className="mb-4">
+          {skills.map((sk, i) => (
+            <div
+              key={sk.title}
+              className={`${i + 1 === skills.length ? "mb-4" : "mb-1.5"} text-sm text-justify`}
+              itemProp="knowsAbout"
+            >
+              <dt className="inline font-medium">{sk.title}: </dt>
+              <dd className="inline">{sk.list.join(", ")}</dd>
+            </div>
+          ))}
+        </dl>
+
+        <p
+          className="flex flex-wrap gap-2.5"
+          role="list"
+          aria-label="Social media profiles"
+        >
+          {socials.map(so => (
+            <a
+              key={so.product}
+              href={so.link}
+              title={`Visit my ${so.product} profile`}
+              className="inline-block p-2 border rounded hover:bg-primary hover:text-primary-foreground transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${so.product} profile`}
+              itemProp="sameAs"
+              role="listitem"
+            >
+              {icons?.[so.product]}
+              <span className="sr-only">{so.product}</span>
+            </a>
+          ))}
+        </p>
       </div>
 
       <img
         className="size-60 sm:size-80 mx-auto rounded-full object-cover animate-img-move border"
         src="/imgs/profile.webp"
-        alt="Profile"
+        alt="Raj kumar - Full Stack Web Developer"
+        width={320}
+        height={320}
+        itemProp="image"
       />
     </section>
   )

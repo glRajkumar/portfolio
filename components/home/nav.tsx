@@ -15,12 +15,17 @@ const links = [
 
 function Nav() {
   return (
-    <nav className="df nav-anime px-6 py-3 fixed z-50 backdrop-blur-md border shadow dark:shadow-white/20">
+    <nav
+      className="df nav-anime px-6 py-3 fixed z-50 backdrop-blur-md border shadow dark:shadow-white/20"
+      aria-label="Main navigation"
+    >
       <Link href="/" className="df">
         <img
           className="size-10 rounded-full object-cover border"
           src="/imgs/profile.webp"
-          alt="Profile"
+          alt="Raj kumar profile picture"
+          width={40}
+          height={40}
         />
         <span className="hidden sm:block">Raj kumar</span>
       </Link>

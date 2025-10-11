@@ -26,17 +26,20 @@ export const educations = [
   {
     course: "MBA (General)",
     institution: "Pondicherry University - Loyola College",
-    timeline: "2022 - 2024"
+    timeline: "2022 - 2024",
+    isoTimeline: "2022-02/2024-06",
   },
   {
     course: "B.Sc. Mathematics",
     institution: "Loyola College",
-    timeline: "2016 - 2019"
+    timeline: "2016 - 2019",
+    isoTimeline: "2016-02/2019-06",
   },
   {
     course: "Schooling (6th - 12th)",
     institution: "Don Bosco Higher Secondary School",
-    timeline: "2010 - 2016"
+    timeline: "2010 - 2016",
+    isoTimeline: "2010-02/2016-06",
   }
 ]
 
@@ -45,6 +48,7 @@ export const experiences = [
     title: "Senior Product Engineer",
     company: "HaiVE",
     timeline: "Feb 2024 - Jun 2025",
+    isoTimeline: "2024-02/2025-06",
     location: "Hybrid - Chennai",
     descriptions: `
 HaiVE is an AI-first SaaS company focused on research and developing innovative AI-driven products. I was **responsible for end-to-end UI development** across web, mobile, and desktop platforms using React as the core technology. **Contributed to 15+ projects from scratch**, out of which two evolved into major products: Speakup and Nidum.AI.
@@ -78,6 +82,7 @@ Nidum.AI is transforming the AI landscape by building a decentralized ecosystem 
     title: "Full Stack Developer",
     company: "Datalligence AI",
     timeline: "Jul 2023 - Feb 2024",
+    isoTimeline: "2023-07/2024-02",
     location: "In-Office - Chennai",
     descriptions: `
 Datalligence is an OKR and performance management platform built to drive team alignment, boost productivity, and accelerate execution within organizations.
@@ -96,6 +101,7 @@ Datalligence is an OKR and performance management platform built to drive team a
     title: "Software Developer",
     company: "Redink.app",
     timeline: "Feb 2022 - Jun 2023",
+    isoTimeline: "2022-02/2023-06",
     location: "Remote",
     descriptions: `
 Redink is a leading LMS platform for K-12 schools.
@@ -119,6 +125,7 @@ Redink is a leading LMS platform for K-12 schools.
     title: "MERN Stack Developer",
     company: "Teknuance Info Solutions",
     timeline: "Nov 2020 - Feb 2022",
+    isoTimeline: "2020-11/2022-02",
     location: "Remote",
     descriptions: `
 Teknuance Info Solutions is a product and research-driven organization delivering innovative solutions to complex challenges across industries. Worked on Sabhae products which is an all-in-one collaboration tool for online meetings and team communication and collabration - positioned as a direct competitor to Microsoft's Teams products.
