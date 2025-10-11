@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import { educations } from "./data";
+import { educations } from "@/lib/data";
 import { cn } from "@/lib/utils";
 
 function Educations() {
@@ -20,41 +20,23 @@ function Educations() {
                 "rounded-t-2xl": i === 0,
                 "rounded-b-2xl": i === educations.length - 1,
               })}
-              itemScope
-              itemType="https://schema.org/EducationalOccupationalCredential"
             >
               <div className="df justify-between flex-wrap">
-                <h3
-                  className="font-medium"
-                  itemProp="credentialCategory"
-                >
-                  {edu.course}
-                </h3>
-                <time
-                  className="text-primary/80"
-                  dateTime={edu.isoTimeline}
-                  itemProp="dateCreated"
-                >
+                <h3 className="font-medium">{edu.course}</h3>
+                <time className="text-primary/80" dateTime={edu.isoTimeline}>
                   {edu.timeline}
                 </time>
               </div>
 
-              <div
-                className="text-primary/90"
-                itemProp="recognizedBy"
-                itemScope
-                itemType="https://schema.org/EducationalOrganization"
-              >
-                <span itemProp="name">{edu.institution}</span>
+              <div className="text-primary/90">
+                {edu.institution}
               </div>
             </article>
 
-            {i < educations.length - 1 && (
-              <div
-                className="-mx-8 py-2.5 bg-pattern border-y"
-                aria-hidden="true"
-              ></div>
-            )}
+            {
+              i < educations.length - 1 &&
+              <div className="-mx-8 py-2.5 bg-pattern border-y" aria-hidden="true"></div>
+            }
           </Fragment>
         ))}
       </div>

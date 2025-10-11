@@ -1,6 +1,6 @@
 import { Mail } from "lucide-react";
 
-import { skills, socials } from "./data";
+import { skills, socials } from "@/lib/data";
 
 const icons: any = {
   x: <svg role="img" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><title>X</title><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" /></svg>,
@@ -11,31 +11,17 @@ const icons: any = {
 
 function Intro() {
   return (
-    <section
-      className="grid lg:grid-cols-3 items-center content-center gap-6 max-w-7xl mx-auto min-h-svh p-8 max-lg:pt-24"
-      itemScope
-      itemType="https://schema.org/Person"
-    >
+    <section className="grid lg:grid-cols-3 items-center content-center gap-6 max-w-7xl mx-auto min-h-svh p-8 max-lg:pt-24">
       <div className="animate-slide-fade sm:text-lg lg:col-span-2">
         <p className="text-xs">Hey there,</p>
+
         <h1 className="font-medium">
-          I'm <span
-            className="text-2xl sm:text-3xl font-semibold bg-linear-to-r from-teal-400 to-teal-500 bg-clip-text text-transparent"
-            itemProp="name"
-          >
-            Raj kumar
-          </span>
+          I'm <span className="text-2xl sm:text-3xl font-semibold bg-linear-to-r from-teal-400 to-teal-500 bg-clip-text text-transparent">Raj kumar</span>
         </h1>
-        <p
-          className="mb-2 text-3xl sm:text-4xl font-semibold"
-          itemProp="jobTitle"
-        >
-          Full Stack Web Developer
-        </p>
-        <p
-          className="mb-4 text-sm text-justify"
-          itemProp="description"
-        >
+
+        <p className="mb-2 text-3xl sm:text-4xl font-semibold">Full Stack Web Developer</p>
+
+        <p className="mb-4 text-sm text-justify">
           I'm a Full Stack Web Developer focused on building scalable, user-friendly web applications using the React ecosystem and Node.js. Having worked closely with startup founders, I deliver solutions that balance business goals with design excellence. With an intrapreneurial mindset, I constantly innovate, optimize workflows, and ensure seamless product experiences.
         </p>
 
@@ -44,7 +30,6 @@ function Intro() {
             <div
               key={sk.title}
               className={`${i + 1 === skills.length ? "mb-4" : "mb-1.5"} text-sm text-justify`}
-              itemProp="knowsAbout"
             >
               <dt className="inline font-medium">{sk.title}: </dt>
               <dd className="inline">{sk.list.join(", ")}</dd>
@@ -59,13 +44,12 @@ function Intro() {
           {socials.map(so => (
             <a
               key={so.product}
+              rel="noopener noreferrer"
               href={so.link}
               title={`Visit my ${so.product} profile`}
-              className="inline-block p-2 border rounded hover:bg-primary hover:text-primary-foreground transition-colors"
               target="_blank"
-              rel="noopener noreferrer"
               aria-label={`${so.product} profile`}
-              itemProp="sameAs"
+              className="inline-block p-2 border rounded hover:bg-primary hover:text-primary-foreground transition-colors"
             >
               {icons?.[so.product]}
               <span className="sr-only">{so.product}</span>
@@ -80,7 +64,7 @@ function Intro() {
         alt="Raj kumar - Full Stack Web Developer"
         width={320}
         height={320}
-        itemProp="image"
+        loading="lazy"
       />
     </section>
   )

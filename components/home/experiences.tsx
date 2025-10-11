@@ -1,6 +1,6 @@
 import { MDXRemote } from "next-mdx-remote/rsc";
 
-import { experiences } from "./data";
+import { experiences } from "@/lib/data";
 
 function Tech({ list }: { list: string[] }) {
   return (
@@ -26,13 +26,11 @@ function Experiences() {
         Experience
       </h2>
 
-      <div aria-label="Work experience timeline" itemProp="hasOccupation" itemScope itemType="https://schema.org/OrganizationRole">
+      <div aria-label="Work experience timeline">
         {experiences.map((ex, i) => (
           <article
             key={ex.title}
             className="revealing mb-4 sm:mb-8 max-w-7xl mx-auto rounded-2xl border relative isolate"
-            itemScope
-            itemType="https://schema.org/OrganizationRole"
           >
             <span
               className={`timeline-line w-px ${i === experiences.length - 1 ? "[--h:90%] md:[--h:80%]" : ""} absolute top-12 -left-px bg-gradient-to-b from-border via-border to-teal-600 dark:to-teal-300 rounded-full`}
@@ -46,28 +44,17 @@ function Experiences() {
               ></span>
 
               <div className="sm:flex-1 text-sm sm:text-base font-medium">
-                <h3 className="text-base sm:text-lg" itemProp="roleName">
-                  {ex.title}
-                </h3>
-                <p itemScope itemType="https://schema.org/Organization">
-                  <span itemProp="name">{ex.company}</span>
-                </p>
+                <h3 className="text-base sm:text-lg">{ex.title}</h3>
+                <p>{ex.company}</p>
               </div>
 
               <div className="text-xs sm:text-sm">
-                <time dateTime={ex.isoTimeline}>
-                  {ex.timeline}
-                </time>
-                <p itemScope itemType="https://schema.org/Place">
-                  <span itemProp="name">{ex.location}</span>
-                </p>
+                <time dateTime={ex.isoTimeline}>{ex.timeline}</time>
+                <p>{ex.location}</p>
               </div>
             </header>
 
-            <div
-              className="marked px-4 pt-2.5 sm:pt-4"
-              itemProp="description"
-            >
+            <div className="marked px-4 pt-2.5 sm:pt-4">
               <MDXRemote
                 source={ex.descriptions}
                 components={{ Tech }}

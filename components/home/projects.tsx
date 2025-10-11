@@ -1,5 +1,5 @@
 import { Link } from "lucide-react";
-import { archievedProjects, liveProjects, type projT } from "./data";
+import { archievedProjects, liveProjects, type projT } from "@/lib/data";
 
 type props = {
   title: string
@@ -17,14 +17,9 @@ function Card({ title, list }: props) {
             <article
               key={pro.title}
               className="dfc in-out p-4 sm:p-6 border rounded-2xl shadow dark:shadow-white/20"
-              itemScope
-              itemType="https://schema.org/CreativeWork"
             >
               <header className="df flex-wrap">
-                <h4
-                  className="text-lg font-semibold shrink-0 mr-auto"
-                  itemProp="name"
-                >
+                <h4 className="text-lg font-semibold shrink-0 mr-auto">
                   {pro.title}
                 </h4>
 
@@ -32,12 +27,11 @@ function Card({ title, list }: props) {
                   {pro.links.map(l => (
                     <a
                       key={l.url}
+                      rel="noopener noreferrer"
                       href={l.url}
                       target="_blank"
-                      rel="noopener noreferrer"
                       className="df gap-1.5 px-2.5 py-1.5 text-xs border rounded-md hover:bg-primary hover:text-primary-foreground transition-colors cursor-pointer shadow dark:shadow-white/20"
                       aria-label={`${l.description} for ${pro.title}`}
-                      itemProp={l.type === "github" ? "codeRepository" : "url"}
                     >
                       {l.type === "github" ?
                         <svg role="img" viewBox="0 0 24 24" className="size-4" fill="currentColor" aria-hidden="true">
@@ -54,10 +48,7 @@ function Card({ title, list }: props) {
               </header>
 
               <div className="flex-1 text-sm text-secondary-foreground/70">
-                <p
-                  className="text-balance"
-                  itemProp="description"
-                >
+                <p className="text-balance">
                   {pro.description}
                 </p>
 
@@ -77,7 +68,6 @@ function Card({ title, list }: props) {
                   <span
                     key={t}
                     className="px-2.5 py-1 text-xs text-primary/80 border rounded-lg bg-primary/5"
-                    itemProp="keywords"
                   >
                     {t}
                   </span>

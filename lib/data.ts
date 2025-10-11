@@ -1,4 +1,14 @@
 
+export const basic = {
+  url: "https://glrk.dev",
+  name: "Raj kumar",
+  title: "Raj kumar | Full Stack Web Developer (React & Node.js)",
+  description: "Raj Kumar is a Full Stack Web Developer specializing in React and Node.js ecosystem.",
+  appName: "glrk",
+  xId: "@glrajkumar01",
+  email: "glrajv369@gmail.com",
+}
+
 export const skills = [
   {
     title: "Frontend",
@@ -322,6 +332,59 @@ export const socials = [
   },
   {
     product: "email",
-    link: "mailto:glrajv369@gmail.com"
+    link: `mailto:${basic.email}`
   },
 ]
+
+export const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": basic.name,
+
+  "url": basic.url,
+  "email": basic.email,
+  "image": `${basic.url}/imgs/profile.webp`,
+
+  "jobTitle": "Full Stack Web Developer",
+  "description": basic.description,
+
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Chennai",
+    "addressRegion": "Tamil Nadu",
+    "addressCountry": "IN"
+  },
+
+  "sameAs": socials.filter(so => so.product !== "email").map(so => so.link),
+
+  "knowsAbout": skills.map(sk => sk.list).flat(),
+
+  "knowsLanguage": [
+    {
+      "@type": "Language",
+      "name": "Tamil",
+      "alternateName": "ta"
+    },
+    {
+      "@type": "Language",
+      "name": "English",
+      "alternateName": "en"
+    },
+  ],
+
+  "hasOccupation": experiences.map(ex => {
+    const [start, end] = ex.isoTimeline.split("/")
+    return {
+      "@type": "Occupation",
+      "name": ex.title,
+      "startDate": start,
+      "endDate": end,
+    }
+  }),
+
+  "alumniOf": educations.map(ed => ({
+    "@type": "EducationalOrganization",
+    "name": ed.institution,
+    "department": ed.course,
+  })),
+}

@@ -1,49 +1,55 @@
 import { Analytics } from "@vercel/analytics/next";
+import Script from "next/script";
 
 import type { Metadata } from "next";
 import "./globals.css";
 
+import { basic, jsonLd } from "@/lib/data";
+
 import { ThemeProvider } from "@/components/theme/provider";
 
-const config = {
-  url: "https://glrk.dev",
-  name: "Raj kumar",
-  title: "Raj kumar | Full Stack Web Developer (React & Node.js)",
-  description: "Raj Kumar is a Full Stack Web Developer specializing in React and Node.js ecosystem.",
-  appName: "glrk",
-}
-
 export const metadata: Metadata = {
-  metadataBase: new URL(config.url),
+  metadataBase: new URL(basic.url),
   title: {
-    default: config.title,
-    template: `%s - ${config.title}`
+    default: basic.title,
+    template: `%s - ${basic.title}`
   },
-  description: config.description,
-  keywords: ["Raj kumar portfolio", "Raj kumar full stack web developer", "Raj kumar full stack developer", "Raj kumar MERN stack developer", "React dev", "Node.js dev", "Next.js dev", "MERN stack dev", "Full stack dev", "Web developer"],
-  authors: [{ name: config.name, url: config.url }],
-  applicationName: config.appName,
-  creator: config.name,
+  description: basic.description,
+  keywords: [
+    `${basic.name} portfolio`,
+    `${basic.name} full stack web developer`,
+    `${basic.name} full stack developer`,
+    `${basic.name} MERN stack developer`,
+    "React dev",
+    "Node.js dev",
+    "Next.js dev",
+    "MERN stack dev",
+    "Full stack dev",
+    "Web developer"
+  ],
+  authors: [{ name: basic.name, url: basic.url }],
+  applicationName: basic.appName,
+  creator: basic.name,
   openGraph: {
-    url: config.url,
+    url: basic.url,
     type: "website",
-    title: config.title,
+    title: basic.title,
     locale: "en_IN",
-    siteName: config.appName,
-    description: config.description,
+    siteName: basic.appName,
+    description: basic.description,
     images: [{
       url: "/imgs/og_image.png",
       width: 1200,
       height: 630,
-      alt: "Raj kumar"
+      alt: basic.title
     }],
   },
   twitter: {
     card: "summary_large_image",
-    title: config.title,
-    description: config.description,
-    site: `@${config.appName}`,
-    creator: "@glrajkumar01",
+    title: basic.title,
+    description: basic.description,
+    site: `@${basic.appName}`,
+    creator: basic.xId,
     images: ["/imgs/og_image.png"],
   },
   icons: {
@@ -79,6 +85,10 @@ function RootLayout({ children }: readOnlyChildren) {
         >
           {children}
         </ThemeProvider>
+
+        <Script id="json-ld" type="application/ld+json">
+          {JSON.stringify(jsonLd)}
+        </Script>
 
         <Analytics />
       </body>
