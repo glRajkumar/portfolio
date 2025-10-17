@@ -195,7 +195,12 @@ export const liveProjects: projT[] = [
         url: "https://github.com/glRajkumar/sdm-matrimony-backend",
       },
       {
-        description: "Website",
+        description: "Demo",
+        type: "live",
+        url: "https://sdmdemo.glrk.dev",
+      },
+      {
+        description: "Live",
         type: "live",
         url: "https://sdmatrimony.com",
       },

@@ -48,7 +48,7 @@ function Card({ title, list }: props) {
               </header>
 
               <div className="flex-1 text-sm text-secondary-foreground/70">
-                <p className="text-balance">
+                <p className="">
                   {pro.description}
                 </p>
 
