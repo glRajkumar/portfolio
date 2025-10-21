@@ -13,9 +13,9 @@ export const skills = [
   {
     title: "Frontend",
     list: [
-      "React", "Next.js", "Zustand", "Tanstak Query", "React-router-dom",
+      "React", "Next.js", "Zustand", "TanStack Query", "React Router Dom",
       "TailwindCSS", "Shadcn UI", "SCSS", "React Hook Form", "Zod",
-      "Typescript", "Vite", "Bootstrap", "React Three Fiber",
+      "JavaScript", "TypeScript", "Vite", "Bootstrap", "React Three Fiber",
     ]
   },
   {
@@ -30,11 +30,15 @@ export const skills = [
     title: "Mobile / Desktop",
     list: ["React Native", "Expo", "Electron.js", "RN Reanimated", "Nativewind"]
   },
+  {
+    title: "CI / CD",
+    list: ["GitHub", "Netlify", "AWS EC2", "Vercel"]
+  }
 ]
 
 export const educations = [
   {
-    course: "MBA (General)",
+    course: "MBA (General) via ",
     institution: "Pondicherry University - Loyola College",
     timeline: "2022 - 2024",
     isoTimeline: "2022-02/2024-06",
@@ -82,6 +86,8 @@ Nidum.AI is transforming the AI landscape by building a decentralized ecosystem 
 - **Spearheaded the UI development** from the ground up, enabling users to access and interact with multiple AI models from providers like **OpenAI, Claude, Groq**, and others - all under one platform.
 - **Delivered cross-platform applications**: web (React), mobile (React Native + Expo), and desktop (Electron), ensuring consistent user experience.
 - Designed and implemented a **high-performance, scalable ChatGPT-like UI/UX** tailored for real-time AI interactions.
+- Demonstrated problem-solving excellence by **resolving complex real-time streaming issues** across multiple AI providers and multiple chat windows.
+- Proactively identified potential issues before they became critical, showcasing strong analytical thinking and preventive problem-solving skills.
 - Website features: Chat with AI models, image uploads, and voice activity detection (VAD) support.
 - Mobile app features: Chat with AI models, use local AI models, and upload images.
 - Desktop app features: All web features, plus local model loading, document-based chat, and the ability for users to share their computation power by exposing models for use by others.
@@ -103,7 +109,8 @@ Datalligence is an OKR and performance management platform built to drive team a
 - **Accelerated development speed** by incorporating Tailwind CSS, React Query, and Zustand.
 - **Resolved critical frontend and backend issues**, ensuring platform stability and performance
 - **Upgraded deprecated libraries**, ensuring code integrity and future proofing.
-- Worked on **TypeORM with PostgreSQL** on the backend.
+- Demonstrated adaptability by **quickly mastering new technologies** (TypeORM with PostgreSQL) and integrating them into existing workflows.
+- **Mentored junior developers** on React best practices, code review standards, and modern development workflows, fostering team growth and code quality.
 
 <Tech list={["React", "React-router-dom", "Tailwind CSS", "React Query", "Zustand", "TypeORM", "PostgreSQL", "Ant Design"]} />
 `
@@ -117,12 +124,13 @@ Datalligence is an OKR and performance management platform built to drive team a
     descriptions: `
 Redink is a leading LMS platform for K-12 schools.
 
-- Developed **Redink Classroom v2** (Teacher and Admin roles), showcasing my ability to create effective and user-friendly modern web applications using React and Tailwind CSS.
-- Proactively **addressed critical bugs** and introduced new features, resulting in **78 pull requests**, demonstrating my commitment to continuous improvement.
+- Developed **Redink Classroom v2**, demonstrating expertise in building modern, user-centric web applications with React and Tailwind CSS.
+- Demonstrated continuous improvement by **addressing critical bugs** and introducing new features, resulting in **78 pull requests**.
 - Implemented **optimization strategies** by reducing library dependencies, achieving a **30% reduction** in overall site load time.
-- Directly **collaborated with founders and clients**, contributing to a dynamic and innovative work environment.
+- **Collaborated with founders and clients**, contributing to a dynamic and innovative work environment.
 - Managed various client projects, highlighting my expertise in delivering tailored solutions.
 - Excelled as a **solo developer**, taking full ownership and delivering **high-quality results** independently.
+- Built strong client relationships through clear communication, actively gathering requirements and providing regular project updates to ensure alignment.
 - Notable Works:
   1. **Redink Classroom** website - built in Next.js. [Website](https://redink.app)
   2. **Upfunda** website (previously YouthInYou) - built in Next.js. [Website](https://upfunda.academy)
@@ -153,7 +161,6 @@ Teknuance Info Solutions is a product and research-driven organization deliverin
 
 <strong className="-mb-1">Internship</strong>
 
-- Worked on basic tasks such as creating simple webpages using React and Redux.
 - Built a simple chat application using the MERN stack with Socket.io for **real-time messaging**.
 
 <Tech list={["React", "Bootstrap", "Redux", "MERN Stack", "Socket.io"]} />
