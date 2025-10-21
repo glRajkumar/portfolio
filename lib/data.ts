@@ -20,11 +20,11 @@ export const skills = [
   },
   {
     title: "Backend",
-    list: ["Hono.js", "Express.js", "Fastify", "Jsonwebtoken", "Bcrypt", "Cloudinary", "REST API"]
+    list: ["Node.js", "Hono.js", "Express.js", "Fastify", "Jsonwebtoken", "Cloudinary", "REST API"]
   },
   {
     title: "Database / ORM",
-    list: ["MongoDb", "PostgreSQL", "Redis", "Mongoose", "Prisma", "Sequelize", "TypeORM", "Supabase"]
+    list: ["MongoDB", "PostgreSQL", "Redis", "Mongoose", "Prisma", "Sequelize", "Type ORM", "Supabase"]
   },
   {
     title: "Mobile / Desktop",
@@ -65,21 +65,22 @@ HaiVE is an AI-first SaaS company focused on research and developing innovative 
 
 <strong className="-mb-1">Speakup (Agent Studio)</strong>
 
-Speakup is an AI Agent Studio platform that automates B2B customer interactions using AI-driven voice and chat assistants - positioned as a direct competitor to vapi.ai and bland.ai. It offers customizable AI workflows, multi-channel communication (voice and chat), and seamless third-party integrations.
+Speakup is an AI Agent Studio platform that automates B2B customer interactions using AI-driven voice and chat assistants - positioned as a direct competitor to vapi.ai and bland.ai. It offers customizable AI workflows, multi-channel communication (voice and chat), and supporting features such as inbound/outbound phone call with/by agents.
 
-- Developed the entire product from scratch on the frontend (**Next.js and Hono.js**), supporting features such as inbound/outbound phone call agents, intelligent chatbots, and customizable AI workflows tailored for enterprise clients.
+- Architected full-stack solution with **Next.js SSR and TanStack React Query** for optimized data hydration.
+- Built **Hono.js backend** handling user management via **Google OAuth** and traditional credential authentication and data collection from bot.
 - Integrated third-party platforms like **Zendesk and Zoho Cliq via webhooks** to enable seamless communication between AI agents and external systems.
-- **Led** the development and maintenance of the **frontend, backend** services (auth and user data), and chatbot functionality, ensuring a scalable and reliable experience across use cases.
-- **Implemented a user-friendly interface** for creating and managing AI agents, linking them to mobile numbers, deploying them for various interaction scenarios and customizing their behavior and chatbot interfaces.
+- **Led the development and maintenance** of the frontend, backend services, and chatbot functionality, ensuring a scalable and reliable experience across use cases.
+- **Developed embeddable bot widget using Vite + React** for deployment on client business websites, with centralized customization dashboard enabling users to configure chatbot behavior and interface styling.
 
 <Tech list={["Next.js", "Hono.js", "Tailwind CSS", "Zustand", "React Query", "MongoDb - Mongoose", "Shadcn UI", "Arctic"]} />
 
 <strong className="-mb-1">Nidum.AI (Vibe Studio)</strong>
 
-Nidum.AI is transforming the AI landscape by building a decentralized ecosystem that allows anyone to contribute computing power and earn rewards. Currently being acquired by BitsCrunch, a leading AI + Blockchain company in the crypto space.
+Nidum.AI is transforming the AI landscape by building a decentralized ecosystem that allows anyone to contribute computing power and earn rewards. Currently being **acquired by BitsCrunch**, a leading AI + Blockchain company in the crypto space.
 
-- **Spearheaded the UI development** of a decentralized AI ecosystem from the ground up, enabling users to access and interact with multiple AI models from providers like **OpenAI, Claude, Groq**, and others - all under one platform.
-- Built and maintained **web (React), mobile (React Native + Expo), and desktop (Electron)** applications to ensure seamless cross-platform access.
+- **Spearheaded the UI development** from the ground up, enabling users to access and interact with multiple AI models from providers like **OpenAI, Claude, Groq**, and others - all under one platform.
+- **Delivered cross-platform applications**: web (React), mobile (React Native + Expo), and desktop (Electron), ensuring consistent user experience.
 - Designed and implemented a **high-performance, scalable ChatGPT-like UI/UX** tailored for real-time AI interactions.
 - Website features: Chat with AI models, image uploads, and voice activity detection (VAD) support.
 - Mobile app features: Chat with AI models, use local AI models, and upload images.
@@ -98,11 +99,11 @@ Nidum.AI is transforming the AI landscape by building a decentralized ecosystem 
 Datalligence is an OKR and performance management platform built to drive team alignment, boost productivity, and accelerate execution within organizations.
 
 - **Revamped OKR module UI** with a sleek design, enhancing both user and developer experience.
-- Overhauled UI logics for a more intuitive and seamless interface using **Ant Design systems** with Tailwind CSS.
+- Overhauled UI logics for a more intuitive and seamless interface using **Ant Design systems with Tailwind CSS**.
 - **Accelerated development speed** by incorporating Tailwind CSS, React Query, and Zustand.
-- Successfully addressed and **resolved** major frontend and backend **issues**.
+- **Resolved critical frontend and backend issues**, ensuring platform stability and performance
 - **Upgraded deprecated libraries**, ensuring code integrity and future proofing.
-- Worked on TypeORM with PostgreSQL on the backend.
+- Worked on **TypeORM with PostgreSQL** on the backend.
 
 <Tech list={["React", "React-router-dom", "Tailwind CSS", "React Query", "Zustand", "TypeORM", "PostgreSQL", "Ant Design"]} />
 `
@@ -116,10 +117,10 @@ Datalligence is an OKR and performance management platform built to drive team a
     descriptions: `
 Redink is a leading LMS platform for K-12 schools.
 
-- Successfully developed **Redink Classroom v2** (Teacher and Admin roles), showcasing my ability to create effective and user-friendly modern web applications using React and Tailwind CSS.
+- Developed **Redink Classroom v2** (Teacher and Admin roles), showcasing my ability to create effective and user-friendly modern web applications using React and Tailwind CSS.
 - Proactively **addressed critical bugs** and introduced new features, resulting in **78 pull requests**, demonstrating my commitment to continuous improvement.
 - Implemented **optimization strategies** by reducing library dependencies, achieving a **30% reduction** in overall site load time.
-- Directly collaborated with founders and clients, contributing to a dynamic and innovative work environment.
+- Directly **collaborated with founders and clients**, contributing to a dynamic and innovative work environment.
 - Managed various client projects, highlighting my expertise in delivering tailored solutions.
 - Excelled as a **solo developer**, taking full ownership and delivering **high-quality results** independently.
 - Notable Works:
@@ -142,7 +143,7 @@ Teknuance Info Solutions is a product and research-driven organization deliverin
 
 <strong className="-mb-1">Full Time</strong>
 
-- Designed and developed Sabhae Bot, which processed, analyzed and **rendered complex data dynamically into simple UI components**.
+- **Designed and developed Sabhae Bot**, which processed, analyzed and **rendered complex data dynamically into simple UI components**.
 - **Collaborated with NLP and Machine Learning teams** to plan and design the bot workflow.
 - Built extensive test coverage for all new features and optimized several aspects of bot development using React and Sass.
 - **Created a custom CSS library in Sass** for the UI team, improving **workflow efficiency by 50-60%**.
