@@ -1,4 +1,4 @@
-import { Mail } from "lucide-react";
+import { FileUser, Mail } from "lucide-react";
 
 import { skills, socials } from "@/lib/data";
 
@@ -55,6 +55,16 @@ function Intro() {
               <span className="sr-only">{so.product}</span>
             </a>
           ))}
+
+          <a
+            className="inline-block p-2 border rounded hover:bg-primary hover:text-primary-foreground transition-colors"
+            href="/Rajkumar-Resume.pdf"
+            aria-label="Download my resume"
+            title="Download my resume"
+            download
+          >
+            <FileUser className="size-4" />
+          </a>
         </p>
       </div>
 
