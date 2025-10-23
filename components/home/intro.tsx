@@ -58,7 +58,7 @@ function Intro() {
 
           <a
             className="inline-block p-2 border rounded hover:bg-primary hover:text-primary-foreground transition-colors"
-            href="/Rajkumar-Resume.pdf"
+            href="/Rajkumar_G_Resume.pdf"
             aria-label="Download my resume"
             title="Download my resume"
             download
