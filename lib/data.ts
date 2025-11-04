@@ -13,14 +13,14 @@ export const skills = [
   {
     title: "Frontend",
     list: [
-      "React", "Next.js", "Zustand", "TanStack Query", "React Router Dom",
-      "TailwindCSS", "Shadcn UI", "SCSS", "React Hook Form", "Zod",
-      "JavaScript", "TypeScript", "Vite", "Bootstrap", "React Three Fiber",
+      "React", "Next.js", "Zustand", "TanStack Query", "React Router DOM",
+      "TailwindCSS", "Shadcn UI", "SCSS", "React Hook Form",
+      "JavaScript", "TypeScript", "Vite", "Bootstrap", "Three.js", "React Three Fiber",
     ]
   },
   {
     title: "Backend",
-    list: ["Node.js", "Hono.js", "Express.js", "Fastify", "Jsonwebtoken", "Cloudinary", "REST API"]
+    list: ["Node.js", "Hono.js", "Express.js", "Fastify", "Cloudinary", "REST API", "BullMQ", "Nginx", "Zod"]
   },
   {
     title: "Database / ORM",
@@ -87,7 +87,6 @@ Nidum.AI is transforming the AI landscape by building a decentralized ecosystem 
 - **Delivered cross-platform applications**: web (React), mobile (React Native + Expo), and desktop (Electron), ensuring consistent user experience.
 - Designed and implemented a **high-performance, scalable ChatGPT-like UI/UX** tailored for real-time AI interactions.
 - Demonstrated problem-solving excellence by **resolving complex real-time streaming issues** across multiple AI providers and multiple chat windows.
-- Proactively identified potential issues before they became critical, showcasing strong analytical thinking and preventive problem-solving skills.
 - Website features: Chat with AI models, image uploads, and voice activity detection (VAD) support.
 - Mobile app features: Chat with AI models, use local AI models, and upload images.
 - Desktop app features: All web features, plus local model loading, document-based chat, and the ability for users to share their computation power by exposing models for use by others.
@@ -228,6 +227,11 @@ export const liveProjects: projT[] = [
         description: "Source code",
         type: "github",
         url: "https://github.com/glRajkumar/threejs-r3f",
+      },
+      {
+        description: "Website",
+        type: "live",
+        url: "https://threejs-r3f.vercel.app",
       }
     ]
   },

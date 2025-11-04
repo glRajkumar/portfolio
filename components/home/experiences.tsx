@@ -33,13 +33,13 @@ function Experiences() {
             className="revealing mb-4 sm:mb-8 max-w-7xl mx-auto rounded-2xl border relative isolate"
           >
             <span
-              className={`timeline-line w-px ${i === experiences.length - 1 ? "[--h:90%] md:[--h:80%]" : ""} absolute top-12 -left-px bg-gradient-to-b from-border via-border to-teal-600 dark:to-teal-300 rounded-full`}
+              className={`timeline-line w-px ${i === experiences.length - 1 ? "[--h:90%] md:[--h:80%]" : ""} absolute top-12 -left-px bg-linear-to-b from-border via-border to-teal-600 dark:to-teal-300 rounded-full`}
               aria-hidden="true"
             ></span>
 
             <header className="df justify-between flex-wrap sm:gap-4 p-4 pl-7 sticky top-20 rounded-2xl bg-secondary border shadow dark:shadow-white/10">
               <span
-                className="size-5 absolute top-1/2 -left-[11px] -translate-y-1/2 bg-border dark:bg-secondary border border-accent-foreground/70 rounded-full z-[1]"
+                className="size-5 absolute top-1/2 -left-[11px] -translate-y-1/2 bg-border dark:bg-secondary border border-accent-foreground/70 rounded-full z-1"
                 aria-hidden="true"
               ></span>
 
