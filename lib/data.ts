@@ -214,6 +214,29 @@ export const liveProjects: projT[] = [
     ]
   },
   {
+    title: "UI",
+    description: "UI component library like shadcn. Currently have shadcn wrappers v0 and planned for more. (under development)",
+    technologies: ["Next.js", "Tailwindcss", "Typescript", "Fumadocs", "Shiki", "Shadcn UI"],
+    features: [
+      "Reusable UI component library",
+      "Add code with shadcn registry using your cli",
+      "Can be modified as needed and Fully customisable",
+      "Type safe with utility functions"
+    ],
+    links: [
+      {
+        description: "Source code",
+        type: "github",
+        url: "https://github.com/glRajkumar/ui",
+      },
+      {
+        description: "Website",
+        type: "live",
+        url: "https://ui.glrk.dev",
+      }
+    ]
+  },
+  {
     title: "R3F Practice",
     description: "Website to know about R3F(three.js). (under development)",
     technologies: ["Next.js", "Three.js", "React-three-fiber", "Tailwindcss", "Typescript", "Mdx", "Lil-GUI", "Shiki", "Shadcn UI"],
