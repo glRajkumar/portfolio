@@ -7,6 +7,7 @@ export const basic = {
   appName: "glrk",
   xId: "@glrajkumar01",
   email: "glrajv369@gmail.com",
+  github: "https://github.com/glRajkumar",
 }
 
 export const skills = [
@@ -360,7 +361,7 @@ export const archievedProjects: projT[] = [
 export const socials = [
   {
     product: "github",
-    link: "https://github.com/glRajkumar"
+    link: basic.github,
   },
   {
     product: "x",

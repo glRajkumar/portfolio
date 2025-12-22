@@ -1,3 +1,4 @@
+import { RootProvider } from 'fumadocs-ui/provider/next';
 import { Analytics } from "@vercel/analytics/next";
 import Script from "next/script";
 
@@ -76,14 +77,14 @@ export const metadata: Metadata = {
 function RootLayout({ children }: readOnlyChildren) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="bg-primary-foreground text-primary">
+      <body className="flex flex-col min-h-screen bg-primary-foreground text-primary">
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <RootProvider>{children}</RootProvider>
         </ThemeProvider>
 
         <Script id="json-ld" type="application/ld+json">
