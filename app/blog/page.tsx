@@ -6,14 +6,14 @@ function Page() {
   const posts = blog.getPages()
 
   return (
-    <main className="px-4 pb-12 pt-8">
+    <main className="px-4 md:px-6 pb-12 pt-8">
       {posts
         .filter(post => !post.data.draft)
         .map((post) => (
           <Link
             key={post.url}
             href={post.url}
-            className="flex flex-col mb-4 px-6 py-3 border transition-colors hover:bg-muted/50 rounded-md"
+            className="flex flex-col mb-4 px-4.5 py-3 border transition-colors hover:bg-muted/50 rounded-md"
           >
             <p className="font-medium">{post.data.title}</p>
             <p className="text-sm text-fd-muted-foreground">

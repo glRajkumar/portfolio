@@ -1,0 +1,276 @@
+---
+title: Deploying Node.js server on AWS EC2
+description: Step-by-step guide to deploy a Node.js server on AWS EC2 from scratch with real-world practices PM2, Nginx.
+date: 2025-12-23
+---
+
+import { Step, Steps } from 'fumadocs-ui/components/steps'
+
+## Introduction
+
+Deploying a Node.js application to production can feel overwhelming if you're doing it for the first time. In this guide, we'll deploy a **production-ready Node.js server** on an **AWS EC2 instance** using:
+
+- **Node.js**
+- **pnpm** for dependency management
+- **PM2** for process management
+- **Nginx** as a reverse proxy
+- **Certbot** for free HTTPS (Let's Encrypt)
+
+This setup is stable, scalable, and commonly used in real-world production environments.
+
+> Note: This is not the only way to deploy an application. There are multiple deployment approaches depending on requirements and system complexity. This guide demonstrates one beginner-friendly method to get started with AWS.
+
+---
+
+## Prerequisites
+
+Before you start, make sure you have:
+
+- An AWS account with EC2 instance 
+- A domain name pointing to your EC2 public IP
+
+---
+
+<Steps>
+
+<Step>
+## Step 1: Connect to Your EC2 Instance
+Connect to your EC2 instance using your preferred method.
+
+All commands below assume you are logged in as the **ubuntu** user.
+</Step>
+
+<Step>
+## Step 2: Update the System
+
+Always start by updating system packages:
+
+```bash
+sudo apt update -y && sudo apt upgrade -y
+```
+
+This ensures security patches and dependency compatibility.
+</Step>
+
+<Step>
+## Step 3: Install Essential Tools
+
+Install common tools required for building and running Node.js apps:
+
+```bash
+sudo apt install -y build-essential git curl jq nginx certbot python3-certbot-nginx
+```
+
+**What these do:**
+
+* **build-essential** - Compiles native Node modules
+* **git** - Clone your repository
+* **nginx** - Reverse proxy and SSL termination
+* **certbot** - HTTPS certificates via Let's Encrypt
+</Step>
+
+<Step>
+## Step 4: Install Node.js (v24)
+
+We'll use **NodeSource** to install the latest Node.js 24.x:
+
+```bash
+curl -fsSL https://deb.nodesource.com/setup_24.x | sudo -E bash -
+sudo apt install -y nodejs
+```
+
+Now you can verify installation:
+
+```bash
+node -v
+npm -v
+```
+</Step>
+
+<Step>
+## Step 5: Enable Corepack and Install pnpm
+
+Node.js ships with **Corepack**, which lets us manage package managers cleanly.
+
+```bash
+corepack enable
+corepack prepare pnpm@latest --activate
+```
+
+Verify pnpm:
+
+```bash
+pnpm -v
+```
+
+**Persist pnpm in PATH**
+
+```bash
+# set pnpm path
+pnpm setup
+# reload shell
+exec $SHELL
+```
+</Step>
+
+<Step>
+## Step 6: Install PM2 (Process Manager)
+
+PM2 keeps your Node.js app running in the background and restarts it on crashes.
+
+```bash
+npm install -g pm2
+pm2 -v
+```
+</Step>
+
+<Step>
+## Step 7: Clone Your Application
+
+Move to the home directory and clone your repo:
+
+```bash
+cd /home/ubuntu
+git clone https://github.com/your-org/your-repo.git app
+cd app
+```
+
+> This setup is for public git repository.
+
+</Step>
+
+<Step>
+## Step 8: Install Dependencies and Build
+
+Navigate to project then Install dependencies using pnpm:
+
+```bash
+pnpm install
+```
+
+If your project has a build step (e.g. TypeScript, Next.js, etc.):
+
+```bash
+pnpm build
+```
+</Step>
+
+<Step>
+## Step 9: Start the App with PM2
+
+Create file named **ecosystem.config.js** and configure it.
+
+```js
+module.exports = {
+  apps: [
+    {
+      name: "backend",
+      script: "./backend/dist/index.js",
+      cmd: "/home/ubuntu/backend",
+      args: "--env production",
+      exec_mode: "cluster",
+      instances: 0,
+      env_production: {
+        // your envs
+      }
+    }
+  ]
+}
+```
+
+Refer [pm2](https://pm2.io/docs/plus/overview/) if needed.
+
+```bash
+cd /home/ubuntu/app
+pm2 start ecosystem.config.js --env production
+```
+
+You can check logs using:
+```bash
+pm2 logs
+```
+</Step>
+
+<Step>
+## Step 10: Configure Domain and HTTPS
+
+Ensure your domain points to your EC2 public IP.
+
+Then generate SSL certificates:
+
+```bash
+sudo certbot --nginx -d demo-domain.dev
+```
+
+Certbot will automatically configure HTTPS and renew certificates.
+</Step>
+
+<Step>
+## Step 11: Configure Nginx as a Reverse Proxy
+
+Edit your Nginx site config:
+
+```bash
+sudo nano /etc/nginx/sites-available/demo-domain.dev
+```
+
+**Example Configuration**
+
+```nginx
+# Redirect HTTP to HTTPS
+server {
+  listen 80;
+  server_name demo-domain.dev;
+
+  return 301 https://$host$request_uri;
+}
+
+server {
+  listen 443 ssl http2;
+  server_name demo-domain.dev;
+
+  ssl_certificate /etc/letsencrypt/live/demo-domain.dev/fullchain.pem;
+  ssl_certificate_key /etc/letsencrypt/live/demo-domain.dev/privkey.pem;
+
+  # Proxy /api to Node.js app
+  location /api/ {
+    proxy_pass http://127.0.0.1:5000/api/;
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection "upgrade";
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+  }
+
+  location / {
+    return 404;
+  }
+}
+```
+
+Enable the site and reload Nginx:
+
+```bash
+sudo ln -s /etc/nginx/sites-available/demo-domain.dev /etc/nginx/sites-enabled/
+sudo nginx -t
+sudo systemctl reload nginx
+```
+</Step>
+
+<Step>
+## Step 12: Verify Deployment
+Visit: `https://demo-domain.dev/api`
+</Step>
+</Steps>
+
+
+---
+
+## Conclusion
+
+You've successfully deployed a **production-grade Node.js server on AWS EC2** using modern tooling and best practices.
+
+Happy deploying!!!
+
