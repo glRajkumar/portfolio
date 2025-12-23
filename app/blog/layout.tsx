@@ -6,7 +6,7 @@ function Layout({ children }: LayoutProps<'/'>) {
   return (
     <HomeLayout
       {...baseOptions()}
-      className='[--fd-layout-width:none] [&_nav]:px-4 [&_nav]:sm:px-6'
+      className='[--fd-layout-width:none] [&_nav]:px-4 [&_nav]:sm:px-6 bg-background'
     >
       {children}
     </HomeLayout>

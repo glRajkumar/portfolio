@@ -1,39 +1,35 @@
-import { PathUtils } from 'fumadocs-core/source';
 import Link from 'next/link';
 
 import { blog } from '@/lib/source';
 
-function getName(path: string) {
-  return PathUtils.basename(path, PathUtils.extname(path));
-}
-
-export default function Page() {
-  const posts = [...blog.getPages()].sort(
-    (a, b) =>
-      new Date(b.data.date ?? getName(b.path)).getTime() -
-      new Date(a.data.date ?? getName(a.path)).getTime(),
-  );
+function Page() {
+  const posts = blog.getPages()
 
   return (
-    <main className="px-4 pb-12 md:py-12">
-      <div className="grid grid-cols-1 gap-2 md:grid-cols-3 xl:grid-cols-4">
-        {posts.map((post) => (
+    <main className="px-4 pb-12 pt-8">
+      {posts
+        .filter(post => !post.data.draft)
+        .map((post) => (
           <Link
             key={post.url}
             href={post.url}
-            className="flex flex-col bg-fd-card rounded-2xl border shadow-sm p-4 transition-colors hover:bg-fd-accent hover:text-fd-accent-foreground"
+            className="flex flex-col mb-4 px-6 py-3 border transition-colors hover:bg-muted/50 rounded-md"
           >
             <p className="font-medium">{post.data.title}</p>
             <p className="text-sm text-fd-muted-foreground">
               {post.data.description}
             </p>
 
-            <p className="mt-auto pt-4 text-xs text-brand">
-              {new Date(post.data.date ?? getName(post.path)).toDateString()}
-            </p>
+            {
+              post.data.date &&
+              <p className="pt-2 text-xs">
+                {new Date(post.data.date).toDateString()}
+              </p>
+            }
           </Link>
         ))}
-      </div>
     </main>
-  );
+  )
 }
+
+export default Page
