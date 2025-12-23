@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+import { basic } from "@/lib/data";
+
 import ThemeToggler from "../theme/toggler";
 
 const links = [
@@ -19,19 +21,20 @@ const links = [
 
 function Nav() {
   return (
-    <nav className="df nav-anime px-4 sm:px-6 py-3 fixed z-50 backdrop-blur-md border shadow dark:shadow-white/20">
-      <Link href="/" className="df">
+    <nav className="df nav-anime px-4 sm:px-6 h-14 fixed z-50 backdrop-blur-md border">
+      <Link href="/" className="df gap-2.5">
         <img
           className="size-10 rounded-full object-cover border shrink-0"
           src="/imgs/profile.webp"
-          alt="Raj kumar profile picture"
+          alt={`${basic.name} picture`}
           width={40}
           height={40}
+          aria-label={basic.name}
         />
-        <span className="hidden sm:block">Raj kumar</span>
+        <span className="hidden xs:block">{basic.name}</span>
       </Link>
 
-      <ul className="df sm:gap-4 ml-auto text-sm sm:text-base">
+      <ul className="df xs:gap-4 ml-auto text-sm xs:text-base">
         {
           links.map(link => (
             <li key={link.to}>

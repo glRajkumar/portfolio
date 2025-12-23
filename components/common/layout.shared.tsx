@@ -14,17 +14,15 @@ export function baseOptions(): BaseLayoutProps {
       title: (
         <>
           <Image
-            alt={basic.name}
+            className="size-10 rounded-full object-cover border shrink-0"
             src="/imgs/profile.webp"
-            width={32}
-            height={32}
-            className="size-8 rounded-full border"
+            alt={`${basic.name} picture`}
+            width={40}
+            height={40}
             aria-label={basic.name}
           />
 
-          <span className="font-medium in-[.uwu]:hidden">
-            {basic.name}
-          </span>
+          <span className="font-normal in-[.uwu]:hidden">{basic.name}</span>
         </>
       ),
     },

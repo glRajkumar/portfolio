@@ -5,6 +5,10 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@theme {
+  --breakpoint-xs: 30rem;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -292,7 +296,7 @@
 
   to {
     inset: 1rem clamp(2%, 5vw, 5rem) auto;
-    border-radius: 1.5rem;
+    border-radius: 1rem;
   }
 }
 
