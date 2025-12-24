@@ -1,0 +1,289 @@
+---
+title: Using Multiple GitHub Accounts | Cloning Repos with SSH
+description: Learn how to manage multiple GitHub accounts on the same machine and securely clone private repositories using SSH keys.
+date: 2025-12-24
+---
+
+When working with GitHub professionally, it's common to face two scenarios:
+
+1. Using **multiple GitHub accounts on the same machine**
+2. Cloning **private repositories** on your machine
+3. Cloning **private repositories on EC2 instance**
+
+---
+
+## SSH basics
+
+SSH authentication works using a **key pair**:
+
+- **Private key** → stays on your machine / server
+- **Public key** → added to GitHub
+
+Once GitHub trusts your public key, it allows access without passwords or tokens.
+
+Sounds fancy, but all you need is the following single line of code.
+
+```bash
+ssh-keygen -t ed25519 -f ~/.ssh/github_key -C "identity"
+```
+
+<Accordions type="single">
+<Accordion title="Explanation">
+`ssh-keygen`
+
+The tool used to **generate SSH key pairs** (a public key + a private key).
+
+---
+
+`-t ed25519`
+
+Specifies the **type of key**.
+
+* `ed25519` = modern, fast, and very secure
+* Preferred over older `rsa` keys unless a service explicitly requires RSA
+
+✔ Best default choice today.
+
+---
+
+`-f ~/.ssh/github_key`
+
+Specifies the **file name and location** for the key.
+
+This creates **two files**:
+
+```text
+~/.ssh/github_key      → private key (keep secret)
+~/.ssh/github_key.pub  → public key (safe to share)
+```
+
+If you didn't use `-f`, it would default to `~/.ssh/id_ed25519`.
+
+---
+
+`-C "identity"`
+
+Adds a **comment** to the public key.
+
+* Purely for **identification**
+* Commonly used to note *where* or *why* the key is used
+
+Example when viewed:
+
+```text
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAI... identity
+```
+</Accordion>
+
+<Accordion title="Typical next steps" id="typical-next-step">
+1. **Add public key to GitHub**
+
+copy content from the pub file
+
+```bash
+cat ~/.ssh/github_key.pub
+```
+
+→ Paste into GitHub → *SSH keys*
+
+Visit [keys section in github](https://github.com/settings/keys)
+
+![keys](/blog/git-clone-with-ssh/keys.png)
+
+Add new key -> [Add New Key](https://github.com/settings/ssh/new)
+
+![new key](/blog/git-clone-with-ssh/new-key.png)
+
+
+2. **Tell SSH to use this key**
+
+Edit your `~/.ssh/config` file:
+
+```bash
+Host github_key github.com
+  HostName github.com
+  PreferredAuthentications publickey
+  IdentityFile ~/.ssh/github_key
+```
+
+3. Now you can clone the repo as follows
+
+```bash
+git clone git@github.com:username/repo.git # [!code --]
+git clone git@github_key:username/repo.git # [!code ++] [!code focus]
+```
+
+Replace `github.com` with the new key name.
+
+4. Change the local name, email.
+```bash
+git config user.email "work@doamin.com"
+git config user.name "username"
+```
+
+Though we properly cloned the repo, on pushing - the default config will be used. Above config changes will update the repo config locally.
+
+5. You can verify which account is used
+
+```bash
+ssh -T git@github_key
+```
+
+You should see:
+
+```text
+Hi <username>! You've successfully authenticated, but GitHub does not provide shell access.
+```
+</Accordion>
+</Accordions>
+
+---
+
+## Using multiple GitHub accounts on the same machine
+
+#### 1. Generate separate SSH keys
+
+```bash
+ssh-keygen -t ed25519 -f ~/.ssh/github_work_1 -C "github_work_1"
+ssh-keygen -t ed25519 -f ~/.ssh/github_work_2 -C "github_work_2"
+````
+
+> Note: I prefer using email id as comments, like `ssh-keygen -t ed25519 -f ~/.ssh/github_work_1 -C "work@domain.com"`
+
+This creates:
+
+```text
+~/.ssh/github_work_1
+~/.ssh/github_work_1.pub
+~/.ssh/github_work_2
+~/.ssh/github_work_2.pub
+```
+
+> Check out [Typical Next Step](#typical-next-step)
+
+#### 2. Add keys to GitHub accounts
+
+* **Work account**
+
+  * GitHub → Settings → SSH and GPG keys
+  * Add `github_work_1.pub`
+
+* **Work account**
+
+  * GitHub → Settings → SSH and GPG keys
+  * Add `github_work_2.pub`
+
+#### 3. Configure SSH to map accounts
+
+Edit `~/.ssh/config`:
+
+```bash
+Host github_work_1 github.com
+  HostName github.com
+  PreferredAuthentications publickey
+  IdentityFile ~/.ssh/github_work_1
+
+Host github_work_2 github.com
+  HostName github.com
+  PreferredAuthentications publickey
+  IdentityFile ~/.ssh/github_work_2
+```
+
+Set permissions, if needed:
+
+```bash
+chmod 600 ~/.ssh/config
+chmod 600 ~/.ssh/github_work_1 ~/.ssh/github_work_2
+```
+
+#### 4. Clone repos using the correct host
+
+```bash
+# Work repo 1
+git clone git@github_work_1:username/repo.git
+
+# Work repo 2
+git clone git@github_work_2:username/repo.git
+```
+
+then change config for each repos if needed:
+
+```bash
+git config user.email "work@doamin.com"
+git config user.name "username"
+```
+
+Each repo now automatically uses the correct GitHub account.
+
+---
+
+## Cloning a private GitHub repo on an EC2 instance
+
+When deploying from EC2, **SSH keys** are preferred over Personal Access Tokens. We can follow same procedure used above.
+
+### 1. Generate SSH key on EC2
+
+Generate a dedicated key for deployments:
+
+```bash
+ssh-keygen -t ed25519 -f ~/.ssh/ec2_github_key -C "ec2-deploy"
+```
+
+### 2. Configure SSH on EC2
+
+If you wish to use multiple githubs in the same ec2 machine then you can follow above config methods. If you are going to use single account then follow following procedure,
+
+Add the key to SSH config so GitHub always uses it:
+
+```bash
+cat << 'EOF' >> ~/.ssh/config
+Host github.com
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/ec2_github_key
+  IdentitiesOnly yes
+EOF
+```
+
+If permissions related issues occured:
+
+```bash
+chmod 700 ~/.ssh
+chmod 600 ~/.ssh/config ~/.ssh/ec2_github_key
+chmod 644 ~/.ssh/ec2_github_key.pub
+```
+
+### 3. Add the key to GitHub
+
+You have two options:
+
+#### Option A: Add as account SSH key
+
+1. Copy the public key:
+
+```bash
+cat ~/.ssh/ec2_github_key.pub
+```
+
+2. GitHub → Settings → SSH and GPG keys → New SSH key
+
+* Name: `EC2 Prod` or `EC2 Dev`
+* Paste the key and save
+
+#### Option B: Add as repo deploy key (recommended for prod)
+
+Use this for **single-repo access** (most secure).
+
+* Repo → Settings → Deploy keys → Add deploy key
+* Paste `ec2_github_key.pub`
+* Leave **Write access unchecked** unless required
+
+All set now you can use ssh based repo cloning.
+
+---
+
+## Final thoughts
+
+* Use **one SSH key per account or server**
+* Use **deploy keys for production EC2**
+* Never reuse your **personal laptop SSH keys** on servers
