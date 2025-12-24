@@ -253,6 +253,67 @@ chmod 600 ~/.ssh/config ~/.ssh/ec2_github_key
 chmod 644 ~/.ssh/ec2_github_key.pub
 ```
 
+<Accordions type="single">
+<Accordion title="difference between config">
+**Config A** — Default key for `github.com`
+
+```bash
+Host github.com
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/ec2_github_key
+  IdentitiesOnly yes
+```
+
+**What this does**
+
+* Applies **whenever you connect to `github.com`**
+* Forces SSH to use **only** `~/.ssh/ec2_github_key`
+* Ignores all other keys loaded in `ssh-agent`
+
+**Key lines explained**
+
+* `Host github.com` → matches **exactly** `github.com`
+* `User git` → required for GitHub (`git@github.com`)
+* `IdentityFile` → fixed key for all GitHub ops
+* `IdentitiesOnly yes` → critical: prevents SSH from trying other keys
+
+**Config B** — Alias-based key selection
+
+```bash
+Host github_key github.com
+  HostName github.com
+  PreferredAuthentications publickey
+  IdentityFile ~/.ssh/github_key
+```
+
+**What this does**
+
+* Creates a **custom alias**: `github_key`
+* Uses `~/.ssh/github_key` **only when that alias is used**
+* Does **not** override default GitHub behavior
+
+**Key lines explained**
+
+* `Host github_key github.com`
+  * `github_key` → custom alias
+  * `github.com` → also matches default
+* `PreferredAuthentications publickey` → SSH skips password fallback
+* No `IdentitiesOnly` → other keys *may* still be tried
+
+
+**Side-by-Side Comparison**
+
+| Feature                  | Config A | Config B    |
+| ------------------------ | -------- | ----------- |
+| Multiple GitHub accounts | ❌ No     | ✅ Yes      |
+| Best for EC2 / servers   | ✅ Yes    | ⚠️ Overkill |
+| Needs custom clone URL   | ❌ No     | ✅ Yes      |
+| Key isolation            | ✅ Strong | ⚠️ Medium   |
+
+</Accordion>
+</Accordions>
+
 ### 3. Add the key to GitHub
 
 You have two options:
